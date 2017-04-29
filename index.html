@@ -1,2 +1,168 @@
-Hello World
-test
+	<!-- myResume -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>myResume</title>
+	<meta charset="utf-8">
+	<meta name="keywords" content="resume,工作,简历,recruitment">
+	<link rel="shortcut icon" href="img/resume.ico">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>myResume</header>
+<aside class="right">
+	<ul>
+		<li>
+			<a href="#top" title="返回顶部"><img src="img/top.svg"></a>
+		</li>
+		<li class="dropdown" title="微信关注">
+			<a href="#" >
+				<img src="img/QRcode.svg" class="dropbtn">
+			</a>
+			<div class="dropdown-right">
+				<img src="img/qrcodeW.jpg">
+			</div>
+		</li>
+	</ul>
+</aside>
+<aside class="left">
+	<ul>
+		<li class="dropleft">
+			<a href="#basicinfo">
+				<img src="font/info.svg" class="dropbtn">
+			</a>
+			<div class="dropleft-left"><p>基本信息</p></div>
+		</li>
+		<li class="dropleft">
+			<a href="#eduinfo">
+				<img src="font/edu.svg" class="dropbtn">
+			</a>
+			<div class="dropleft-left">教育经历</div>
+		</li>
+		<li class="dropleft">
+			<a href="#expinfo">
+				<img src="font/exp.svg">
+			</a>
+			<div class="dropleft-left">项目与实践</div>
+		</li>
+		<li class="dropleft">
+			<a href="#skillinfo">
+				<img src="font/skill.svg">
+			</a>
+			<div class="dropleft-left">个人技能</div>
+		</li>
+		<li class="dropleft">
+			<a href="#hobinfo">
+				<img src="font/hob.svg">
+			</a>
+			<div class="dropleft-left">兴趣爱好</div>
+		</li>
+	</ul>
+</aside>
+<div class="main">
+	<img src="">
+	<ul>
+		<li class="per" id="basicinfo">
+			<dt><img src="font/info.svg"> 基本信息</dt>
+			<dd><span>个人信息：</span>王弘剑 ／ 男 ／ 25岁</dd>
+			<dd><span>英语：</span>CET6 ／ IELTS 5.5</dd>
+			<dd><span>GitHub：</span><a href="https://github.com/daoiist" target="_blank">https://github.com/daoiist</a></dd>
+			<dd><span>Blog: </span><a href="http://www.cnblogs.com/Sysphus/" target="_blank">http://www.cnblogs.com/Sysphus/</a></dd>
+			<dd><span>简书: </span><a href="http://www.jianshu.com/users/fd425a5b339c/timeline" target="_blank">http://www.jianshu.com/users/fd425a5b339c/timeline</a></dd>
+		</li>
+		<br>
+		<li class="edu" id="eduinfo">
+			<dt><img src="font/edu.svg"> 教育经历</dt>
+			<dd><span>硕士：</span>华南理工大学／计算机科学与技术／2014-2017</dd>
+			<dd><span>本科：</span>河南科技大学／机械设计制造及其自动化／2009-2013</dd>
+		</li>
+		<br>
+		<li class="exp" id="expinfo">
+			<dt><img src="font/exp.svg"> 项目与实践</dt>
+			<h3>法国南特理工大学数据库实验室（2016.4-2016.9）</h3>
+			<ul class="list">
+				<li>
+					<dt>对OLAP多维数据的CUBE算法的改进</dt>
+					<dd><span><strong>导师：</strong></span>Guillaume Raschia</dd>
+				</li>
+				<li>
+					<dt>项目信息</dt>
+					<dd><span><strong>环境：</strong></span>Ubuntu16/windows10</dd>
+					<dd><span><strong>工具：</strong></span>PostgreSQL/C++</dd>
+					<dd><span><strong>目的：</strong></span>对线上分析处理的基础算法的改进，现有的数据仓库的OLAP不能满足人们对大维度的数据的分析，因此提出了一种可以在时间与空间二者之间得到平衡的新的算法
+					</dd>
+					<dd><span><strong>主要贡献：</strong></span>主要致力于改进CUBE的储存的效率，有效的减少了传统数据仓库的CUBE的空间。在实习中我主要负责对算法的测试与实验，通过一个现实的基准数据库，将数据进行重新整理以符合数据仓库的规则。然后按照我们的理论对数据进行存储，最终构成了一个简单的数据仓库系统
+     				</dd>
+     				<dd><span><strong>收获：</strong></span>本次实习我最大的收获是提高了自己的学习能力，能够更好的适应新的环境和新的挑战
+					</dd>
+				</li>
+			</ul>
+			<h3>华南理工数字图像实验室（2015.2-2015.6）</h3>
+			<ul class="list">
+				<li>
+					<dt>光流算法的研究与改进</dt>
+					<dd><span><strong>导师：</strong></span>张星明</dd>
+				</li>
+				<li>
+					<dt>项目信息</dt>
+					<dd><span><strong>工具：</strong></span>matlab</dd>
+					<dd><span><strong>目的：</strong></span>在已有算法的基础上提出了新的计算计算模型，有效的提高了正确率和效率，在传统的光流算法的基础上使用了laplacian算子，更加高效的计算了光流，并在运用拉普拉斯算子之后，提出了使用张量来更加精确地计算光流
+					</dd>
+					<dd><span><strong>主要贡献：</strong></span>主要负责对matlab的代码进行阅读,和对算法的改进
+     				</dd>
+     				<dd><span><strong>收获：</strong></span>本次实践加深了我对算法的印象，只有出色的算法才能保证出色的应用
+					</dd>
+				</li>
+			</ul>
+		</li>
+		<br>
+		<li class="skill" id="skillinfo">
+			<dt><img src="font/skill.svg"> 个人技能</dt>
+			<h3>语言</h3>
+			<ul class="list">
+				<li>
+					<h4>C++</h4>
+					<p>熟练掌握C++的各种特性，面向对象、模版范型、STL库等</p>
+					<p>能够熟练的应用Linux下的Makefile进行编译，了解makefile的依赖关系，可以熟练的利用第三方库</p>
+				</li>
+				<li>
+					<h4>java</h4>
+					<p>了解java的基础，曾利用awt编写过2048、计算器等可视化小程序，了解网络编程（socket）和多线程编程</p>
+				</li>
+				<li>
+					<h4>SQL</h4>
+					<p>熟悉mySql和PostgreSql，利用PostgreSql处理过6百万+的数据，可以熟练的操作数据库，并进行复杂的查询</p>
+				</li>
+				<li>
+					<h4>python、c#以及web前端语言</h4>
+					<p>基本了解</p>
+				</li>
+			</ul>
+			<h3>其他</h3>
+			<ul class="list">
+				<li>
+					<h4>Linux</h4>
+					<p>熟练掌握Linux命令，基本了解linux编译环境</p>
+				</li>
+				<li>
+					<h4>机器学习</h4>
+					<p>熟悉各种机器学习算法，具体使用过隐Markov模型、朴素贝叶斯、神经网络等进行过课程设计</p>
+				</li>
+			</ul>
+		</li>
+		<br>
+		<li class="hob" id="hobinfo">
+			<dt><img src="font/hob.svg"> 兴趣爱好</dt>
+			<dd><span>跑步、足球、音乐、读书</span></dd>
+		</li>
+	</ul>
+
+
+
+
+
+</div>
+
+<footer>write by daoist</footer>
+</body>
+</html>
