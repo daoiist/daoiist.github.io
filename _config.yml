@@ -1,32 +1,27 @@
-# Permalinks
-permalink:           pretty
+title: Your awesome title
+author: GitHub User
+email: your-email@domain.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 
-# Setup
-title:               Daoist
-tagline:             分享是一种美德
-url:                 http://Daoiist.github,io
-paginate:            1
-baseurl:             ""
+twitter_username: jekyllrb
+github_username:  jekyll
 
-# Assets
-#
-# We specify the directory for Jekyll so we can use @imports.
-sass:
-  sass_dir:          _sass
-  style:            :compressed
+# Minima date format
+# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+  date_format: "%b %-d, %Y"
 
-# About/contact
-author:
-  name:              Daoiist
-  url:               https://github.com/daoiist
-  email:             whj.527@gmail.com
+# If you want to link only specific pages in your header, uncomment
+# this and add the path to the pages in order as they should show up
+#header_pages:
+# - about.html
 
-# Custom vars
-version:             2.0.0
-github:
-  repo:              https://github.com/daoiist/daoiist.github.io
-
-# Gems
-gems:
-  - jekyll-paginate
-  - jekyll-gist
+# Build settings
+markdown: kramdown
+theme: minima
+exclude:
+  - Gemfile
+  - Gemfile.lock
