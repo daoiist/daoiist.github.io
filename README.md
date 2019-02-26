@@ -1,5 +1,5 @@
 daoiist.github.io
 =====================
-[github](https://github.com/daoiist)
+github首页：[github.com/daoiist](https://github.com/daoiist)
 
-[daoiist.github.io](https://daoiist.github.io)
+gitpage：[daoiist.github.io](https://daoiist.github.io)
