@@ -1,25 +1,3 @@
-title: Daoiist
-author: daoist
-email: whj.527@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  分享是一种美德
-
-
-github_username:  daoiist
-
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-minima:
-  date_format: "%b %-d, %Y"
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.html
-
-# Build settings
+name: Hank Quinlan, Horrible Cop
 markdown: kramdown
-theme: minima
-exclude:
-  - Gemfile
-  - Gemfile.lock
+permalink: /blog/:year/:month/:day/:title
