@@ -1,3 +1,47 @@
-name: Daoiist
-markdown: kramdown
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# name: Daoiist
+title: Daoiist
+email: whj.527@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  分享是一种美德
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://daoiist.github.io" # the base hostname & protocol for your site
+
+social_sharing: true
+github_username:  daoiist
+google_analytic_id:
+disqus_name:
+
 permalink: /blog/:year/:month/:day/:title
+pagination:
+  enabled: true
+  per_page: 5
+  permalink: '/page/:num.html'
+  title: ':title - page :num'
+  sort_reverse: true
+
+autopages:
+  enabled: true
+  categories:
+    title: 'Posts in category :cat'
+  tags:
+    title: 'Posts tagged with :tag'
+  collections:
+    title: 'Posts in collection :coll'
+
+# jekyll seo tag settings
+logo: assets/images/example-image.png
+twitter:
+  username: daoist
+
+# Build settings
+markdown: kramdown
+sass:
+  style: compressed
