@@ -4,6 +4,8 @@ description: 分享是一种美德
 
 permalink: /:year/:month/:day/:title.html
 
+github: https://github.com/daoiist
+
 # Build settings
 markdown: kramdown
 sass:
