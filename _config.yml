@@ -2,7 +2,7 @@ title: Daoiist
 email: whj.527@gmail.com
 description: 分享是一种美德
 
-permalink: /:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title.html
 
 # Build settings
 markdown: kramdown
