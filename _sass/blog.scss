@@ -3,7 +3,7 @@ body {
   background-color: #fff;
   padding:50px;
   margin:60px;
-  font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 18px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:400;
 }
@@ -15,6 +15,10 @@ a {
 
 a:hover, a:focus {
   color:#069;
+}
+
+p{
+	color:#000;
 }
 
 .container {
