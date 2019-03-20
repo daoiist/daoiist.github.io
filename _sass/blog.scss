@@ -1,8 +1,8 @@
 @import "fonts";
 body {
   background-color: #fff;
-  padding:50px;
-  margin:60px;
+  padding:10px;
+  margin:30px;
   font: 18px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:400;
@@ -11,6 +11,7 @@ body {
 a {
 	color:#267CB9;
 	text-decoration:none;
+	padding:6px;
 }
 
 a:hover, a:focus {
