@@ -4,6 +4,8 @@ body {
   font: #{$base-font-size}/#{$base-line-height} "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:$base-font-weight;
+  margin:0;
+  padding:0;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,7 +73,7 @@ img {
   max-width:100%;
 }
 
-.site-nav{
+.site-header .wrapper{
 	margin:0;
 	padding:0;
 	display:block;
