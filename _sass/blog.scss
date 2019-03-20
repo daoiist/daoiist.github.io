@@ -3,7 +3,7 @@ body {
   background-color: #fff;
   padding:10px;
   margin:30px;
-  font: $base-font-size/$base-line-height "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: #{$base-font-size}/#{$base-line-height} "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#727272;
   font-weight:$base-font-weight;
 }
