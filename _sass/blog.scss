@@ -9,7 +9,12 @@ body {
 }
 
 a {
-  text-decoration:none;
+	color:#267CB9;
+	text-decoration:none;
+}
+
+a:hover, a:focus {
+  color:#069;
 }
 
 .container {
