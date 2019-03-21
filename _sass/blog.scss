@@ -89,7 +89,12 @@ img {
 		display:inline;
 	}
 	.site-title {
-		margin:0 30px;
+		color:$logo-color
+		font-weight: bold;
+		margin:0 50px 0 40px;
+	}
+	.site-nav a:hover, a:focus {
+		color:#4592f8;
 	}
 }
 
