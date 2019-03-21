@@ -104,7 +104,7 @@ img {
 	.wrapper{
 		background-color:#f0f0f0;
 		border-top:1px solid #aaa;
-		padding:15px;
+		padding:15px 15px 40px 15px;
 		display:block;
 	}
 	ul {
@@ -124,10 +124,14 @@ img {
 
 @media screen and (max-width: 700px) {
 
-  .container {
-    width:auto;
-    margin:0;
-    padding:0;
-  }
+	.container {
+		width:auto;
+		margin:0;
+		padding:0;
+	}
+  	.site-description{
+		width:auto;
+		margin:30px auto;
+	}
 
 }
