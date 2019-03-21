@@ -73,23 +73,24 @@ img {
   max-width:100%;
 }
 
-.site-header .wrapper{
-	margin:0;
-	padding:0;
-	display:block;
-	background-color:#f6f7d7;
-	color:#3ec1d3;
+.site-header {
+	.wrapper{
+		margin:0;
+		padding:0;
+		display:block;
+	}
+	.site-nav ul {
+		list-style-type:none;
+		margin:0;
+		padding:0;
 }
 
-.site-nav ul {
-	list-style-type:none;
-	margin:0;
-	padding:0;
+	.site-nav li {
+		display:inline;
+	}
 }
 
-.site-nav li {
-	display:inline;
-}
+
 
 @media screen and (max-width: 700px) {
 
