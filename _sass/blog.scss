@@ -77,14 +77,14 @@ img {
 	.wrapper{
 		border-bottom:1px solid #aaa;
 		margin:0;
-		padding:0;
+		padding:15px;
 		display:block;
 	}
 	.site-nav ul {
 		list-style-type:none;
 		margin:0;
 		padding:0;
-}
+	}
 
 	.site-nav li {
 		display:inline;
@@ -96,6 +96,24 @@ img {
 	.site-title a{color:$logo-color;}
 	.site-title a:hover, a:focus {
 		color:#4592f8;
+	}
+}
+
+.site-footer{
+	.wrapper{
+		border-top:1px solid #aaa;
+		margin:0;
+		padding:15px;
+		display:block;
+	}
+	.site-nav ul {
+		list-style-type:none;
+		margin:0;
+		padding:0;
+	}
+
+	.site-nav li {
+		display:inline;
 	}
 }
 
