@@ -41,6 +41,7 @@ p{
 
 .wrapper {
   max-width:calc(#{$content-width} - #{$spacing-unit} * 2);
+  max-width:-webkit-calc(#{$content-width} - #{$spacing-unit} * 2);
   margin:0 auto;
   padding:0 20px;
 }
@@ -120,13 +121,15 @@ img {
 
 @media screen and (max-width: 400px) {
 
-	.container {
-		width:auto;
+	.wrapper {
+		max-width:calc(#{$content-width} - #{$spacing-unit});
+		max-width:-webkit-calc(#{$content-width} - #{$spacing-unit});
 		margin:0;
 		padding:0;
 	}
   	.site-description{
-		width:auto;
+		max-width:calc(#{$content-width} - #{$spacing-unit});
+		max-width:-webkit-calc(#{$content-width} - #{$spacing-unit});
 		margin:30px auto;
 	}
 
