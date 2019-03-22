@@ -1,15 +1,15 @@
 @import "fonts";
 body {
-  background-color: #fff;
+  background-color: $background-color;
   font: #{$base-font-size}/#{$base-line-height} "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color:#727272;
-  font-weight:$base-font-weight;
-  margin:0px;
-  padding:0px;
+  color: $default-color;
+  font-weight: $base-font-weight;
+  margin: 0px;
+  padding: 0px;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color: $h-color;
   margin:0 0 20px;
 }
 
@@ -18,31 +18,31 @@ h1 {
 }
 
 h2 {
-  color:#393939;
+  color: #h2-color;
 }
 
 h3, h4, h5, h6 {
-  color:#494949;
+  color: $h3-color;
 }
 
 a {
-	color:#267CB9;
+	color:$a-color;
 	text-decoration:none;
 	padding:6px;
 }
 
 a:hover, a:focus {
-  color:#069;
+  color:$a-hover-color;
 }
 
 p{
-	color:#000;
+	color:#777;
 }
 
-.container {
-  width:860px;
+.wrapper {
+  max-width:calc(#{$content-width} - #{$spacing-unit} * 2);
   margin:0 auto;
-  padding:20px;
+  padding:0 20px;
 }
 
 blockquote {
