@@ -1,9 +1,9 @@
 ---
 layout: post
-title: convolution based interpolation for fast, high quality rotation of images
+title: 1995 convolution based interpolation for fast, high quality rotation of images
 ---
 
-这是一篇关于图像旋转的文章，从本文可以看到数学算法在图像领域中最优美的应用，不仅如此，文章也道尽了太多哲学思想，本文写于2015年，是高级图像处理这门课的课程作业，近日看到所谓[机器学习中体现的各种工程和科学的哲学思想](http://www.tensorinfinity.com/paper_116.html)，与本文中的内容相互印证，有所感悟，故整理本文重新编写。阅读本文以及相对应的文献，需要有很多先验知识铺垫，包括简单的三角公式、卷积、B-spline、插值、采样、傅立叶变换等，我会在本文中梳理所需要的知识，并给出总结。
+这是一篇关于图像旋转的文章，从本文可以看到数学算法在图像领域中最优美的应用，不仅如此，文章也道尽了太多哲学思想，本文写于2015年11月，是高级图像处理这门课的课程作业，近日看到所谓[机器学习中体现的各种工程和科学的哲学思想](http://www.tensorinfinity.com/paper_116.html)，与本文中的内容相互印证，有所感悟，故整理本文重新编写。阅读本文以及相对应的文献，需要有很多先验知识铺垫，包括简单的三角公式、卷积、B-spline、插值、采样、傅立叶变换等，我会在本文中梳理所需要的知识，并给出总结。
 
 ----
 
@@ -13,9 +13,23 @@ title: convolution based interpolation for fast, high quality rotation of images
 
 旋转图像的质量与插值模型的算法直接相关，对于最近邻插值、二阶线性插值等算法而言，这会造成图像中的明显的平滑（smoothing）或块状（blocking）缺陷（artifacts），为了获得较好的图像质量，我们需要更高阶的插值算法，但是由于这些算法的计算消耗太大，尤其在图片像素越来越大，直接通过旋转矩阵乘法来进行插值，就需要考虑非常复杂的2维插值方程。因此我们的解决办法就是将旋转矩阵分解成为多个步骤旋转矩阵，比如两步分解的旋转矩阵：
 
-$$R(\theta)=\left[\begin{matrix}cos \theta & -sin \theta \\sin \theta & cos \theta\end{matrix}\right]=\left[\begin{matrix}1 & 0 \\tan \theta & \frac{1}{cos \theta}\end{matrix}\right] \times \left[\begin{matrix} cos \theta & -sin \theta \\t0 & 1 \end{matrix}\right]$$
+$$R(\theta)=\left[\begin{matrix}cos \theta & -sin \theta \\sin \theta & cos \theta\end{matrix}\right]=\left[\begin{matrix}1 & 0 \\tan \theta & \frac{1}{cos \theta}\end{matrix}\right] \times \left[\begin{matrix} cos \theta & -sin \theta \\0 & 1 \end{matrix}\right]$$
 
-从这个矩阵可以看到，
+从这个矩阵可以看到，我们通过将原始旋转矩阵分解成两个部分，从而得到了分别在x、y维上扩张和收缩两个转换矩阵，每个矩阵表示在某一维度上进行了适当的放大或缩小，这个方法的优势在于每次只需要对图像单独某一行进行计算，从而可以有效的减轻计算量。但是缺点也很明显，这个方法需要一些中间信号缩放处理，不仅使我们的插值算法变得复杂，更会引入一些误差。
+
+因此，我们又找到了一种新的没有按比例增减的新方法，它将初始的旋转矩阵分解成了三部分：
+
+$$
+R(\theta)=
+\left[\begin{matrix}cos \theta & -sin \theta \\sin \theta & cos \theta\end{matrix}\right]=
+\left[\begin{matrix}1 & -tan \frac{\theta}{2} \\0 & 1\end{matrix}\right] 
+\times 
+\left[\begin{matrix} 1 & 0 \\sin \theta & 1 \end{matrix}\right]
+\times
+\left[\begin{matrix}0 & -tan \frac{\theta}{2}\\0 & 1 \end{matrix}\right] 
+$$
+
+
 
 ## 采样与插值
 
