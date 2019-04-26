@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 1995 convolution based interpolation for fast, high quality rotation of images
+title: 好文推荐：基于卷积的插值图像旋转
 ---
 
 这是一篇关于图像旋转的文章，从本文可以看到数学算法在图像领域中最优美的应用，不仅如此，文章也道尽了太多哲学思想，本文写于2015年11月，是高级图像处理这门课的课程作业，近日看到所谓[机器学习中体现的各种工程和科学的哲学思想](http://www.tensorinfinity.com/paper_116.html)，与本文中的内容相互印证，有所感悟，故整理本文重新编写。阅读本文以及相对应的文献，需要有很多先验知识铺垫，包括简单的三角公式、卷积、B-spline、插值、采样、傅立叶变换等，我会在本文中梳理所需要的知识，并给出总结。
