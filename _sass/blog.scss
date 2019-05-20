@@ -33,15 +33,9 @@ a {
 
 a:hover, a:focus {
   color:$a-hover-color;
-  background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
-	radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
-	background-size: 20px 20px;
-	background-position: -10px calc(100% + 16px), 0 calc(100% - 4px);
-	animation: waveFlow 1s infinite linear;
 }
 
-.flow-wave:hover,
-.flow-wave:focus {
+.post a:hover,a:focus {
     background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
         radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
     background-size: 20px 20px;
