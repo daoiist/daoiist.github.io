@@ -157,29 +157,15 @@ img {
 
 @media screen and (min-width: 375px) {
     body {
-        /* iPhone6的375px尺寸作为8px基准，414px正好10px大小, 600 20px */
-        font-size: calc(50% + 2 * (100vw - 375px) / 39);
-        font-size: calc(8px + 2 * (100vw - 375px) / 39);
-    }
-}
-@media screen and (min-width: 414px) {
-    body {
-        /* 414px-1000px每100像素宽字体增加1px(10px-14px) */
-        font-size: calc(62.5% + 4 * (100vw - 414px) / 586);
-        font-size: calc(10px + 4 * (100vw - 414px) / 586);
-    }
-}
-@media screen and (min-width: 600px) {
-    body {
-        /* 600px-1000px每100像素宽字体增加1px(14px-18px) */
-        font-size: calc(87.5% + 4 * (100vw - 600px) / 400);
-        font-size: calc(14px + 4 * (100vw - 600px) / 400);
+        /* iPhone6的375px尺寸作为10px基准，1000px正好16px大小 */
+        font-size: calc(62.5% + 6 * (100vw - 375px) / 625);
+        font-size: calc(10px + 6 * (100vw - 375px) / 625);
     }
 }
 @media screen and (min-width: 1000px) {
     body {
-        /* 1000px往后是每100像素0.5px增加 */
-        font-size: calc(112.5% + 6 * (100vw - 1000px) / 1000);
-        font-size: calc(18px + 6 * (100vw - 1000px) / 1000);
+        /* 1000px往后是每100像素0.1px增加 */
+        font-size: calc(100% + 1 * (100vw - 1000px) / 1000);
+        font-size: calc(16px + 1 * (100vw - 1000px) / 1000);
     }
 }
