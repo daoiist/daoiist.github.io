@@ -143,5 +143,11 @@ img {
 		max-width:-webkit-calc(#{$content-width} - #{$spacing-unit});
 		margin:30px auto;
 	}
+	.post {
+		max-width:calc(#{$content-width} - #{$spacing-unit});
+		max-width:-webkit-calc(#{$content-width} - #{$spacing-unit});
+		margin:0;
+		padding:0;
+	}
 
 }
