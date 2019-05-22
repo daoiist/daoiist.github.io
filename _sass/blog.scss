@@ -8,12 +8,19 @@ body {
   padding: 0px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: $h-color;
+::-moz-selection {
+  background: $logo-color;
+  color: #ffffff;
+  text-shadow: none;
+}
+::selection {
+  background: $logo-color;
+  color: #ffffff;
+  text-shadow: none;
 }
 
-h1 {
-  font-size:28px;
+h1, h2, h3, h4, h5, h6 {
+  color: $h-color;
 }
 
 h2 {
