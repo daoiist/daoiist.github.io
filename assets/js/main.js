@@ -1,0 +1,1 @@
+s.$("backToTop").onclick=function(){o.documentElement.scrollTop=0;o.body.scrollTop=0;return false};
