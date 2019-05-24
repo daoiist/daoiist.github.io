@@ -147,14 +147,10 @@ img {
     position: fixed;
     bottom: 10%;
     right: 5%;
-    width: 2.9vw;
-    height: 3vw;
     font-size: 3vw;
-    border-radius: 3px;
     cursor: pointer;
     background-color: #f5f5f5;
-    color:#3876C7;
-    border: 1px solid $logo-color;
+    color:$logo-color;
 }
 
 @media screen and (max-width: 375px) {
