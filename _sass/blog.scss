@@ -170,6 +170,10 @@ img {
   text-shadow: 0 0.1vw 0 rgba(0, 0, 0, 0.1);
 }
 
+a.tag:hover {
+  color: #ffffff;
+}
+
 @media screen and (max-width: 375px) {
 
 	.wrapper {
