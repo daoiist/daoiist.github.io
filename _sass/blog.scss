@@ -148,7 +148,7 @@ img {
     position: fixed;
     bottom: 10%;
     right: 5%;
-    font-size: 3vw;
+    font-size: 3rem;
     cursor: pointer;
     background-color: #f5f5f5;
     color:$logo-color;
@@ -156,18 +156,18 @@ img {
 
 .tag {
   display: inline-block;
-  padding: 0 0.5vw;
+  padding: 0 0.5rem;
   background: #00a8e6;
-  font-size: 1vw;
+  font-size: 1remn;
   font-weight: bold;
-  line-height: 1.4vw;
+  line-height: 1.4rem;
   color: #ffffff;
   text-align: center;
   vertical-align: middle;
   text-transform: none;
   border: 1px solid rgba(0, 0, 0, 0.06);
-  border-radius: 0.2vw;
-  text-shadow: 0 0.1vw 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.2rem;
+  text-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.1);
 }
 
 a.tag:hover {
