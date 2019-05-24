@@ -8,7 +8,7 @@ pagination:
 	{% for post in site.posts %}
 		<div class="posts">
 			<h2> <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-			<div class="tag">{{post.tag}}</div>
+			<div><span class="tag">{{post.tag}}</span></div>
 			<small><span>{{ post.date | date_to_string }}</span> by <span>Daoist</span></small>
 			<div>
 				<p>{{ post.summary }}</p>
