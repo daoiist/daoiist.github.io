@@ -166,6 +166,9 @@ img {
   vertical-align: middle;
   text-transform: none;
   border: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom-color: rgba(0,0,0,.3);
+  background-image: -webkit-linear-gradient(top,#00b4f5,#008dc5);
+  background-image: linear-gradient(to bottom,#00b4f5,#008dc5);
   border-radius: 0.2rem;
   text-shadow: 0 0.1rem 0 rgba(0, 0, 0, 0.1);
 }
