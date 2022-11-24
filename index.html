@@ -113,85 +113,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/" data-id="clauebqs7000r6ovrgczp8650" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2019-08-16-统计学习" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" class="article-date">
-  <time datetime="2022-11-23T06:37:52.696Z" itemprop="datePublished">2022-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在最终的分析中，所有知识皆为历史。</p>
-<p>在抽象的意义下，所有科学皆为数学。</p>
-<p>在理性的世界里，所有判断皆为统计。</p>
-<hr>
-<p>最近经常看到一个三门问题，三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门会否增加参赛者赢得汽车的机率？</p>
-<p>面对这个问题，大部分人从常识的角度来讲，都会说换与不换应该都是一样的结果，即获得汽车的概率不会改变，为1/3。但是其实这个问题并没有这么简单，我们来用统计方法推导一下。</p>
-<p>如果严格按照上述的条件，即主持人清楚地知道，自己打开的那扇门后是羊，那么选手首先选择的门后为羊的概率为2/3，之后主持人打开一扇有羊的门，选手如果选择换，则一定会选到汽车，如果选择不换，则选到车的概率为0，那么可知，如果选手第一次选羊，则最终一定会换到车，即概率为2/3。如果选手第一次选到汽车1/3，那么换门一定会选到羊概率为1/3。由此可知，选择换门可以提高获得车的概率，使其有1/3提升到2/3。</p>
-<p>这是一个非常反常识的例子，人们从直觉上会认为换与不换结果都是一样的，但是其实换门会让选到车的概率增大一倍。</p>
-<p>再来看一个反常识的例子：史蒂芬，30岁，美国人。史蒂芬的一位邻居这样描述他：「史蒂芬害羞且內向，总是愿意提供帮忙，但对一般大众或社会议题沒有什么参与兴趣。他的性格柔弱顺从，他渴求秩序并讲究细节。」请问史蒂芬目前最可能的职业是销售还是图书馆管理员？</p>
-<p>大部分人看到这个描述，第一反应就是：史蒂芬是图书管理员。内向害羞的人怎么能成为销售呢，他一定是一个图书管理员。但实际上，在美国有一千五百万名销售员，仅有十八万名图书管理员，也就是说销售的几率是图书管理员的83倍，如果我们不考虑对其性格的描述的话。也就是说我们大多数人会自动忽略这个销售人员数量的先验知识，而只以自己获得的主观信息进行判断。</p>
-<p>类似的例子还有彩票，假设我们购买彩票中奖的概率为五百万分之一，一般人就会认为我们购买彩票中奖的几率为0了，但实际上我们根据墨菲定律来看一下，每次不中奖的概率为1-1/5000000，那么如果我们买的次数足够多为n次，中奖几率就会必成<script type="math/tex">1-(1-1/5000000)^n</script>，只要n足够大，就可以获得足够大的中奖几率，只不过我们需要买足够多的彩票才可以。例如我们购买了1000000次的彩票，那么，获奖的概率将会达到18.1%，将会有相当高的中奖几率。所以说只要一个人孜孜不倦的购买彩票，最终会无限接近中奖的。换个说法，只要有足够多的人购买，那么总会有人中奖。</p>
-<p>上边三个例子都说明了一个问题，人类的直觉在统计结果面前，往往显得不那么正确，通常人们是以定性而非定量的方式进行思考，也容易走进统计的误区。所以不妨想想怎么以定量的方法来进行计算，以更加客观的方法将我们遇到的问题量化为数字，复杂的问题也能够一目了然。</p>
-<h3 id="从统计学到机器学习-在理性的世界里，所有判断皆为统计。"><a href="#从统计学到机器学习-在理性的世界里，所有判断皆为统计。" class="headerlink" title="从统计学到机器学习-在理性的世界里，所有判断皆为统计。"></a>从统计学到机器学习-在理性的世界里，所有判断皆为统计。</h3><p>统计学不断渗透到各个领域学科之中，其中就包括计算机科学。利用量化计算和历史数据，经过相关模型和算法的迭代，使计算机自己判断和识别计算的结果，从而达到模式识别、逻辑判断、分类聚类等能力。</p>
-<p>通过无数跨学科（物理、生物、心理）的专家学者的努力，参照统计物理、神经元、人类的心理学等，历经漫长的岁月，最终建立起了人工智能这一跨领域的新兴学科。参照人类学习的过程，人的绝大部分智能是通过后天训练与学习得到的，而不是天生具有的。新生儿刚出生的时候没有视觉和听觉认知能力，在成长的过程中宝宝从外界环境不断得到信息，对大脑形成刺激，从而建立起认知的能力。要给孩子建立“苹果”、“香蕉”、“熊猫”这样的抽象概念，我们需要给他看很多苹果、香蕉的实例或者图片，并反复的告诉他这些水果的名字。经过长期训练之后，终于在孩子的大脑中形成了“苹果”、“香蕉”这些抽象概念和知识，以后他就可以将这些概念运用于眼睛看到的世界。</p>
-<p>机器学习运用了类似的思路，首先从大量的标记样本中提取特征，然后利用统计学习的方法建立模型，得出相同标记的物体的统计模型，接下来就可以用这个模型来对新的图像进行识别了。当然，这种做法只是代表了机器学习中一类典型的算法，称为有监督的学习。除此之外，还有无监督学习、半监督学习、强化学习等其他类型的算法。</p>
-<p>历史上出现了相当多的统计学习建模方法，如分类树、SVM、Boost、随即森林等，每种方法刚问世时都是名噪一时，都在各自擅长的领域取得了很好的成绩，直到2012年Hinton小组发明了卷积神经网络AlexNet，取得了当前所有模型中最好的性能。之所以深度学习能够一统江湖，是有其深刻的原因的。SVM、AdaBoost等所谓的浅层模型并不能很好的解决复杂的图像、语音识别问题，在这些问题上会出现严重的过拟合。举个例子，我们通常所讲的机器翻译其实就是一个浅层模型，它根据目标语言与翻译语言之间简单的单词、文字的对应关系进行翻译，并不能上升到识别语义的高度，而通常人类翻译时会先将目标语言看懂，理解其含义，再使用翻译语言将其重新描述出来。深度学习之所以如此好的性能，前Google Brain研究科学家Christopher Olah在其一篇博文中曾经详细阐述过<a target="_blank" rel="noopener" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">“Deep Learning, NLP, and Representations”</a>，她用word embeddings为例说明了多层深度模型在语言处理上的优势。</p>
-<p>历史选择了深度神经网络作为解决图像、声音识别、围棋等复杂 AI 问题的方法并非偶然，神经网络在理论上有万能逼近定理（universal approximation）的保证：</p>
-<blockquote>
-<p>只要神经元的数量足够，激活函数满足某些数学性质，至少包含一个隐含层的前馈型神经网络可以逼近闭区间上任意连续函数到任意指定精度。即用神经网络可以模拟出任意复杂的函数。我们要识别的图像、语音数据可以看做是一个向量或者矩阵，识别算法则是这些数据到类别值的一个映射函数。</p>
-</blockquote>
-<p>所以现在深度学习除了能够识别较为浅层的特征（像素、纹理、轮廓）之外，还能够进一步将这些浅层特征进一步组合形成元件、组件、物体的深层次特征，也就更加符合人脑的运作模式，经过多层次的特征判断，识别物体。</p>
-<h3 id="AI的局限"><a href="#AI的局限" class="headerlink" title="AI的局限"></a>AI的局限</h3><p>机器学习最受批评之处在于现在计算机仍然无法自行产生可供检测的「特征」（feature）或「假设」（hypothesis），无法具有人类的常识，致使系统效用完全取決程序设计者个人的创造力。</p>
-<p>2018图灵奖获得者、美国工程院院士、Facebook人工智能研究院院长Yann Lecun在台大演讲时，也曾经讲过AI的局限：由于目前比较好的AI应用都是采用监督式学习，能够准确识别人工标示过的物体，也有些好的成果是用强化学习（Reinforcement Learning）的方式，但是强化学习需要大量地收集资料来训练模型，Yann LeCun表示，对应到现实社会中的问题，监督式学习不足以成为“真的”AI。 </p>
-<p><img src="/image/Yann Lecun.jpg" alt="YannLecun与LeNet5"></p>
-<p>他指出，人类的学习是建立在与事物互动的过程，许多都是人类自行体会、领悟出对事物的理解，不需要每件事都要教导，举例来说，若有个物体被前面的物体挡住，人类会知道后面的物体依然存在的事实，或是物体没有另一个物体支撑就会掉落的事实。 </p>
-<p>“人脑就是推理引擎！”他说明，人类靠着观察建立内部分析模型，当人类遇到一件新的事物，就能用这些既有的模型来推测，因为生活中人类接触到大量的事物和知识，而建立了“常识”。这些常识可以带领人类做出一些程序无法达到的能力，像是人类可以只看一半的脸就能想像另外一半脸，或是可以从过去的事件推测未来等。 </p>
-<p>他举例，若人类看到一张战利品放不下行李箱的图片，再看到一个句子说：”这些战利品放不下行李箱，因为它太小了。“人类能够很清楚地知道“它”指的是行李箱，人类也因为知道整个社会和世界运行的规则，当没有太多的信息时，人类可以依照因果关系自动补足空白的信息。</p>
-<p>他表示，对抗训练（Adversarial Training）是可以让 AI 程序拥有自学能力的方法，他解释，对抗训练就是让两个网络相互博奕，由生成器（Generator）和判别器（Discriminator）组成，生成器随机地从训练集中挑选真实数据和干扰噪音，产生新的训练样本，判别器再用与真实数据比对的方式，判断出数据的真实性，如此一来，生成器与判别器可以交互学习自动优化预测能力，创造最佳的预测模型。</p>
-<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ol>
-<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5ODUxOTA5Mg==&amp;mid=2652565686&amp;idx=2&amp;sn=b1cbbac765d04390fbd2e3d01fdba8ae&amp;chksm=8b7e01edbc0988fb7a6f88dd54ba00ce17a3a0cb65ef7d8272c21a760509f6e2bca0b2d3e70e&amp;mpshare=1&amp;scene=24&amp;srcid=&amp;key=68be3ae943e49b4f55c046d46e65977a73f3eb5fa0f295a1253d6a4d5a1410db1f7ef4e1fa67da908ed061703af6a74346402ab6c78b92b1fb4415ded210828c50874739b051a9b55d4ac911c1df89b2&amp;ascene=14&amp;uin=MTY0NzA5ODg4MQ%3D%3D&amp;devicetype=Windows+7&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=t917oPftJtYv14omNOqI3bw%2BnyXGAViJisiJzM7hgmWtrY7lfgVYdw1cAmc5ZtuI">LeCun台大演讲：AI最大缺陷是缺乏常识，无监督学习突破困境</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://ccjou.wordpress.com/2009/04/29/%E8%B2%9D%E6%B0%8F%E5%AE%9A%E7%90%86-%E9%87%8F%E5%8C%96%E6%80%9D%E8%80%83%E7%9A%84%E5%88%A9%E5%99%A8/">貝氏定理──量化思考的利器</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://tensorinfinity.com/paper_208.html">理解计算 从根号2到AlphaGo第八季 孤独的人们</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">Deep Learning, NLP, and Representations</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/332260644_236505">概率的意义:随机世界与大数法则</a></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" data-id="clauebqsb00126ovr1k7r47ly" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/" data-id="clauejiny000rk8vrg44u34ug" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
@@ -374,10 +296,88 @@ with \quad 1\leq j \leq N,and \quad 1\leq t \leq T-1</script></li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2019-07-20-HMM/" data-id="clauebqsb00136ovrcg4jdi35" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2019-07-20-HMM/" data-id="clauejinz000tk8vr6kdl075i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2019-08-16-统计学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.696Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最终的分析中，所有知识皆为历史。</p>
+<p>在抽象的意义下，所有科学皆为数学。</p>
+<p>在理性的世界里，所有判断皆为统计。</p>
+<hr>
+<p>最近经常看到一个三门问题，三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门会否增加参赛者赢得汽车的机率？</p>
+<p>面对这个问题，大部分人从常识的角度来讲，都会说换与不换应该都是一样的结果，即获得汽车的概率不会改变，为1/3。但是其实这个问题并没有这么简单，我们来用统计方法推导一下。</p>
+<p>如果严格按照上述的条件，即主持人清楚地知道，自己打开的那扇门后是羊，那么选手首先选择的门后为羊的概率为2/3，之后主持人打开一扇有羊的门，选手如果选择换，则一定会选到汽车，如果选择不换，则选到车的概率为0，那么可知，如果选手第一次选羊，则最终一定会换到车，即概率为2/3。如果选手第一次选到汽车1/3，那么换门一定会选到羊概率为1/3。由此可知，选择换门可以提高获得车的概率，使其有1/3提升到2/3。</p>
+<p>这是一个非常反常识的例子，人们从直觉上会认为换与不换结果都是一样的，但是其实换门会让选到车的概率增大一倍。</p>
+<p>再来看一个反常识的例子：史蒂芬，30岁，美国人。史蒂芬的一位邻居这样描述他：「史蒂芬害羞且內向，总是愿意提供帮忙，但对一般大众或社会议题沒有什么参与兴趣。他的性格柔弱顺从，他渴求秩序并讲究细节。」请问史蒂芬目前最可能的职业是销售还是图书馆管理员？</p>
+<p>大部分人看到这个描述，第一反应就是：史蒂芬是图书管理员。内向害羞的人怎么能成为销售呢，他一定是一个图书管理员。但实际上，在美国有一千五百万名销售员，仅有十八万名图书管理员，也就是说销售的几率是图书管理员的83倍，如果我们不考虑对其性格的描述的话。也就是说我们大多数人会自动忽略这个销售人员数量的先验知识，而只以自己获得的主观信息进行判断。</p>
+<p>类似的例子还有彩票，假设我们购买彩票中奖的概率为五百万分之一，一般人就会认为我们购买彩票中奖的几率为0了，但实际上我们根据墨菲定律来看一下，每次不中奖的概率为1-1/5000000，那么如果我们买的次数足够多为n次，中奖几率就会必成<script type="math/tex">1-(1-1/5000000)^n</script>，只要n足够大，就可以获得足够大的中奖几率，只不过我们需要买足够多的彩票才可以。例如我们购买了1000000次的彩票，那么，获奖的概率将会达到18.1%，将会有相当高的中奖几率。所以说只要一个人孜孜不倦的购买彩票，最终会无限接近中奖的。换个说法，只要有足够多的人购买，那么总会有人中奖。</p>
+<p>上边三个例子都说明了一个问题，人类的直觉在统计结果面前，往往显得不那么正确，通常人们是以定性而非定量的方式进行思考，也容易走进统计的误区。所以不妨想想怎么以定量的方法来进行计算，以更加客观的方法将我们遇到的问题量化为数字，复杂的问题也能够一目了然。</p>
+<h3 id="从统计学到机器学习-在理性的世界里，所有判断皆为统计。"><a href="#从统计学到机器学习-在理性的世界里，所有判断皆为统计。" class="headerlink" title="从统计学到机器学习-在理性的世界里，所有判断皆为统计。"></a>从统计学到机器学习-在理性的世界里，所有判断皆为统计。</h3><p>统计学不断渗透到各个领域学科之中，其中就包括计算机科学。利用量化计算和历史数据，经过相关模型和算法的迭代，使计算机自己判断和识别计算的结果，从而达到模式识别、逻辑判断、分类聚类等能力。</p>
+<p>通过无数跨学科（物理、生物、心理）的专家学者的努力，参照统计物理、神经元、人类的心理学等，历经漫长的岁月，最终建立起了人工智能这一跨领域的新兴学科。参照人类学习的过程，人的绝大部分智能是通过后天训练与学习得到的，而不是天生具有的。新生儿刚出生的时候没有视觉和听觉认知能力，在成长的过程中宝宝从外界环境不断得到信息，对大脑形成刺激，从而建立起认知的能力。要给孩子建立“苹果”、“香蕉”、“熊猫”这样的抽象概念，我们需要给他看很多苹果、香蕉的实例或者图片，并反复的告诉他这些水果的名字。经过长期训练之后，终于在孩子的大脑中形成了“苹果”、“香蕉”这些抽象概念和知识，以后他就可以将这些概念运用于眼睛看到的世界。</p>
+<p>机器学习运用了类似的思路，首先从大量的标记样本中提取特征，然后利用统计学习的方法建立模型，得出相同标记的物体的统计模型，接下来就可以用这个模型来对新的图像进行识别了。当然，这种做法只是代表了机器学习中一类典型的算法，称为有监督的学习。除此之外，还有无监督学习、半监督学习、强化学习等其他类型的算法。</p>
+<p>历史上出现了相当多的统计学习建模方法，如分类树、SVM、Boost、随即森林等，每种方法刚问世时都是名噪一时，都在各自擅长的领域取得了很好的成绩，直到2012年Hinton小组发明了卷积神经网络AlexNet，取得了当前所有模型中最好的性能。之所以深度学习能够一统江湖，是有其深刻的原因的。SVM、AdaBoost等所谓的浅层模型并不能很好的解决复杂的图像、语音识别问题，在这些问题上会出现严重的过拟合。举个例子，我们通常所讲的机器翻译其实就是一个浅层模型，它根据目标语言与翻译语言之间简单的单词、文字的对应关系进行翻译，并不能上升到识别语义的高度，而通常人类翻译时会先将目标语言看懂，理解其含义，再使用翻译语言将其重新描述出来。深度学习之所以如此好的性能，前Google Brain研究科学家Christopher Olah在其一篇博文中曾经详细阐述过<a target="_blank" rel="noopener" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">“Deep Learning, NLP, and Representations”</a>，她用word embeddings为例说明了多层深度模型在语言处理上的优势。</p>
+<p>历史选择了深度神经网络作为解决图像、声音识别、围棋等复杂 AI 问题的方法并非偶然，神经网络在理论上有万能逼近定理（universal approximation）的保证：</p>
+<blockquote>
+<p>只要神经元的数量足够，激活函数满足某些数学性质，至少包含一个隐含层的前馈型神经网络可以逼近闭区间上任意连续函数到任意指定精度。即用神经网络可以模拟出任意复杂的函数。我们要识别的图像、语音数据可以看做是一个向量或者矩阵，识别算法则是这些数据到类别值的一个映射函数。</p>
+</blockquote>
+<p>所以现在深度学习除了能够识别较为浅层的特征（像素、纹理、轮廓）之外，还能够进一步将这些浅层特征进一步组合形成元件、组件、物体的深层次特征，也就更加符合人脑的运作模式，经过多层次的特征判断，识别物体。</p>
+<h3 id="AI的局限"><a href="#AI的局限" class="headerlink" title="AI的局限"></a>AI的局限</h3><p>机器学习最受批评之处在于现在计算机仍然无法自行产生可供检测的「特征」（feature）或「假设」（hypothesis），无法具有人类的常识，致使系统效用完全取決程序设计者个人的创造力。</p>
+<p>2018图灵奖获得者、美国工程院院士、Facebook人工智能研究院院长Yann Lecun在台大演讲时，也曾经讲过AI的局限：由于目前比较好的AI应用都是采用监督式学习，能够准确识别人工标示过的物体，也有些好的成果是用强化学习（Reinforcement Learning）的方式，但是强化学习需要大量地收集资料来训练模型，Yann LeCun表示，对应到现实社会中的问题，监督式学习不足以成为“真的”AI。 </p>
+<p><img src="/image/Yann Lecun.jpg" alt="YannLecun与LeNet5"></p>
+<p>他指出，人类的学习是建立在与事物互动的过程，许多都是人类自行体会、领悟出对事物的理解，不需要每件事都要教导，举例来说，若有个物体被前面的物体挡住，人类会知道后面的物体依然存在的事实，或是物体没有另一个物体支撑就会掉落的事实。 </p>
+<p>“人脑就是推理引擎！”他说明，人类靠着观察建立内部分析模型，当人类遇到一件新的事物，就能用这些既有的模型来推测，因为生活中人类接触到大量的事物和知识，而建立了“常识”。这些常识可以带领人类做出一些程序无法达到的能力，像是人类可以只看一半的脸就能想像另外一半脸，或是可以从过去的事件推测未来等。 </p>
+<p>他举例，若人类看到一张战利品放不下行李箱的图片，再看到一个句子说：”这些战利品放不下行李箱，因为它太小了。“人类能够很清楚地知道“它”指的是行李箱，人类也因为知道整个社会和世界运行的规则，当没有太多的信息时，人类可以依照因果关系自动补足空白的信息。</p>
+<p>他表示，对抗训练（Adversarial Training）是可以让 AI 程序拥有自学能力的方法，他解释，对抗训练就是让两个网络相互博奕，由生成器（Generator）和判别器（Discriminator）组成，生成器随机地从训练集中挑选真实数据和干扰噪音，产生新的训练样本，判别器再用与真实数据比对的方式，判断出数据的真实性，如此一来，生成器与判别器可以交互学习自动优化预测能力，创造最佳的预测模型。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5ODUxOTA5Mg==&amp;mid=2652565686&amp;idx=2&amp;sn=b1cbbac765d04390fbd2e3d01fdba8ae&amp;chksm=8b7e01edbc0988fb7a6f88dd54ba00ce17a3a0cb65ef7d8272c21a760509f6e2bca0b2d3e70e&amp;mpshare=1&amp;scene=24&amp;srcid=&amp;key=68be3ae943e49b4f55c046d46e65977a73f3eb5fa0f295a1253d6a4d5a1410db1f7ef4e1fa67da908ed061703af6a74346402ab6c78b92b1fb4415ded210828c50874739b051a9b55d4ac911c1df89b2&amp;ascene=14&amp;uin=MTY0NzA5ODg4MQ%3D%3D&amp;devicetype=Windows+7&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=t917oPftJtYv14omNOqI3bw%2BnyXGAViJisiJzM7hgmWtrY7lfgVYdw1cAmc5ZtuI">LeCun台大演讲：AI最大缺陷是缺乏常识，无监督学习突破困境</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ccjou.wordpress.com/2009/04/29/%E8%B2%9D%E6%B0%8F%E5%AE%9A%E7%90%86-%E9%87%8F%E5%8C%96%E6%80%9D%E8%80%83%E7%9A%84%E5%88%A9%E5%99%A8/">貝氏定理──量化思考的利器</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://tensorinfinity.com/paper_208.html">理解计算 从根号2到AlphaGo第八季 孤独的人们</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">Deep Learning, NLP, and Representations</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/332260644_236505">概率的意义:随机世界与大数法则</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" data-id="clauejio30013k8vrdof65sx6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
 
     </footer>
   </div>
@@ -415,10 +415,60 @@ with \quad 1\leq j \leq N,and \quad 1\leq t \leq T-1</script></li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/" data-id="clauebqsc00156ovr5njx6uke" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/" data-id="clauejio40014k8vr35jo0j07" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-12-27-2017年度读书报告" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.686Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>刷豆瓣首页，看到很多年度读书报告，每个人都是几十本书几十篇读后感，想起自己这一年也读了不少书，看了不少电影，听了很多音乐，寻思自己一年来做了这么多事，但是一直浑浑噩噩，从来没有总结过收获和心得，正好趁此机会，在17年即将结束之时，对自己今年看的书进行一次总结，之前的书太多，就不一一列举，之后的书，可以一年定个计划，每年来这么一次年终总结。</p>
+<p>仔细想想，我今年还是看了不少书的，虽然没有做过计划，但是断断续续也看了十几本书，找出来慢慢总结一下吧。</p>
+<p>先拢共列举一下有哪些书，因为看完就扔，哪些书是今年看得，也需要好好想想。《鼠疫》、《局外人》、《活着》、《暗店街》、《废都》、《白银时代》、《妻妾成群》、《古董局中局》、《许三观卖血记》、《我不是潘金莲》、《雪中悍刀行》、《马普尔小姐最后的案件》、《苏菲的世界》，其他一些小说、专业书，一时也想不起名字来，作为日后逐渐的补充吧。这样列起来，发现还是看了不少书的，只是从来没有想过每看一本，去做这么一个总结，也就逐渐落下了许多工作，待到发现时，才恍然发觉，自己读了不少书，但是从来没有过系统的总结，读完就扔，一本书的精华就这样被我浪费了。博学多识过目不忘如钱钟书先生，还是如此的勤奋和严谨，书不仅读一遍，还会读三遍四遍，做笔记的时间是读书一倍。有这样的勤奋的精神，难怪钟书先生“过目不忘”，他说：一本书，第二遍再读，总会发现第一遍时会有很多疏忽。最精彩的句子，要读几遍之后才发现。</p>
+<p>而我，读书全凭一时的兴趣，读完满足了我对这本书的好奇心，也就搁在一旁，不再染指了。难怪总说自己忘性大，记不住是有原因的啊。前事休提，做人还是要往后看嘛，以后虽谈不上治学，也要尽量多记些东西，不至于开口无言，养成对网络的依赖。说到底，虽然有一颗读书的心，但是还没能克服懒，貌似读了不少书，但都是左耳朵进，右耳朵出，没甚效果，感动了自己，但是没留下任何知识，只能夸夸其谈自己藏书几何，读书不掇，真材实料是一点也没有的。</p>
+<p>先说《活着》吧，仰慕已久，对其改编的电影也是久仰大名，但是每当面对这些经典，总会先暗自发愁，小时候读经典大部头留下的阴影。又因为是电子版，一眼望去没看到实际的页数，以为也是大部头，先自怵了，但是慢慢翻看，余华对福贵一生如此平铺直叙、克制、隐忍的描写，总是让人有一种发自内心的触动，因为那不仅仅是福贵的人生，它更是我们每个人的一生，虽然没有任何隐喻、感怀，但它就是做到了让你与自己的人生进行对比，那么赤裸又原始的描写，让人不由思及这活着的意义。多说无益，就把我当时看完的心境放在这里吧：虽然我一直不以活着为意义，但是芸芸众生，每个单独的个体，都是独一无二不可替代的。于是我想起了那句话：爱上丑陋。是呀，无论生活如何继续，抱着如此爱意而活着，也是需要莫大勇气的，忘掉这重复虚妄的世界，拥抱生活吧。</p>
+<p>那接下来还是要说《许三观卖血记》了，余华最出名的两个短篇小说。依旧是那么直白，他的旁观者视角让人无由的对生活的主角—自己，进行了思考，没有过多的道理，就是将一个现实的生活摆在你面前，你从中看到的，不仅仅是那个时代，更是自身，抑或是最原始、最能够触动人心的对终极的探索，那是最伟大的情感，那是最伟大的思想。余华读着是真的累。</p>
+<p>《我不是潘金莲》，去年上映，因为错过了电影，又因为刘震云这个名字重新唤醒了我的某些记忆，我决定先读书，再看电影。知道刘震云，也是从他之前和冯小刚的合作《一地鸡毛》开始的，知道有这么一个荒诞的人，却没有对他有过什么更深的了解。这个故事看上去如此的荒诞不经，如果再深入一些，活脱脱一个局外人，但是作者没有从这个角度来写，这个故事，还是要放在中国这么一个社会下才有意义。讽刺也有，但书中体现的更多是荒诞。李雪莲的人生，就是从那个荒诞的离婚开始讲述，每个人都关注于自身所能涉及到的层面，不同人之间仿佛真的有一个次元壁，他们无法沟通，却又如此真实，或许可以从不同维度来说，每个人都是隐喻，每个人都代表一种互相没有交集的直线。就是这样。</p>
+<p>《鼠疫》《局外人》没能读到精髓，或许应该再读一遍，或许翻译之后，少了些神韵。总之只能结合加缪的思想来看，那种悲壮的、决绝的、义无反顾的精神。如果加缪能够成为最年轻的诺贝尔文学奖得主，那么村上春树应该也能获奖才对。</p>
+<p>苏童是我觊觎已久的一名作家，但是《妻妾成群》放到现在，已经很难让人产生共鸣了，颂莲来到陈府，很难让人不联想到黛玉进大观园，封建的悲剧不仅仅体现在对劳动人民的压迫上，更多的，是一种末世的颓废，一种无法言说的命运感。当然，精细的刻画和对女性心理精确的把握，让这本小说名垂青史，却也让很多人难以深入其中，所谓的没有代入感就是这么个意思吧。</p>
+<p>最后，要说说《苏菲的世界》，在我看来，这真的不是一本哲学入门书，更像是一本童话，一本终将变成现实的科幻小说。它披着哲学的外衣，向你讲述着世界与我们每个人的故事，略显生硬，但是道理就是这么个道理。可以把它看成是一本参考书，时常翻阅，温故知新。</p>
+<p>今年的读书报告就写这么多吧，这么多字是我这段之间中写的最多的，也是断断续续很多天拼凑起来的，读书写字我总以为要一以贯之，一口气读完、写完才有那种酣畅淋漓的畅快感，这样断断续续，停留了这么久的读书报告，也是头一次了，但是显然写字是需要状态的，灵感不在，很难写出东西来，就像这次，一月一日的下午，休息了足够久的脑袋，在这么一个昏暗的办公室，写下了这些不成逻辑的文字。好像略微填充了这三天的空虚？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/" data-id="clauejinu000hk8vrchhr5zit" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
 
     </footer>
   </div>
@@ -477,60 +527,10 @@ with \quad 1\leq j \leq N,and \quad 1\leq t \leq T-1</script></li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="clauebqs2000h6ovrht4l79yd" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="clauejinv000jk8vr66s9e0v4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-12-27-2017年度读书报告" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/" class="article-date">
-  <time datetime="2022-11-23T06:37:52.686Z" itemprop="datePublished">2022-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>刷豆瓣首页，看到很多年度读书报告，每个人都是几十本书几十篇读后感，想起自己这一年也读了不少书，看了不少电影，听了很多音乐，寻思自己一年来做了这么多事，但是一直浑浑噩噩，从来没有总结过收获和心得，正好趁此机会，在17年即将结束之时，对自己今年看的书进行一次总结，之前的书太多，就不一一列举，之后的书，可以一年定个计划，每年来这么一次年终总结。</p>
-<p>仔细想想，我今年还是看了不少书的，虽然没有做过计划，但是断断续续也看了十几本书，找出来慢慢总结一下吧。</p>
-<p>先拢共列举一下有哪些书，因为看完就扔，哪些书是今年看得，也需要好好想想。《鼠疫》、《局外人》、《活着》、《暗店街》、《废都》、《白银时代》、《妻妾成群》、《古董局中局》、《许三观卖血记》、《我不是潘金莲》、《雪中悍刀行》、《马普尔小姐最后的案件》、《苏菲的世界》，其他一些小说、专业书，一时也想不起名字来，作为日后逐渐的补充吧。这样列起来，发现还是看了不少书的，只是从来没有想过每看一本，去做这么一个总结，也就逐渐落下了许多工作，待到发现时，才恍然发觉，自己读了不少书，但是从来没有过系统的总结，读完就扔，一本书的精华就这样被我浪费了。博学多识过目不忘如钱钟书先生，还是如此的勤奋和严谨，书不仅读一遍，还会读三遍四遍，做笔记的时间是读书一倍。有这样的勤奋的精神，难怪钟书先生“过目不忘”，他说：一本书，第二遍再读，总会发现第一遍时会有很多疏忽。最精彩的句子，要读几遍之后才发现。</p>
-<p>而我，读书全凭一时的兴趣，读完满足了我对这本书的好奇心，也就搁在一旁，不再染指了。难怪总说自己忘性大，记不住是有原因的啊。前事休提，做人还是要往后看嘛，以后虽谈不上治学，也要尽量多记些东西，不至于开口无言，养成对网络的依赖。说到底，虽然有一颗读书的心，但是还没能克服懒，貌似读了不少书，但都是左耳朵进，右耳朵出，没甚效果，感动了自己，但是没留下任何知识，只能夸夸其谈自己藏书几何，读书不掇，真材实料是一点也没有的。</p>
-<p>先说《活着》吧，仰慕已久，对其改编的电影也是久仰大名，但是每当面对这些经典，总会先暗自发愁，小时候读经典大部头留下的阴影。又因为是电子版，一眼望去没看到实际的页数，以为也是大部头，先自怵了，但是慢慢翻看，余华对福贵一生如此平铺直叙、克制、隐忍的描写，总是让人有一种发自内心的触动，因为那不仅仅是福贵的人生，它更是我们每个人的一生，虽然没有任何隐喻、感怀，但它就是做到了让你与自己的人生进行对比，那么赤裸又原始的描写，让人不由思及这活着的意义。多说无益，就把我当时看完的心境放在这里吧：虽然我一直不以活着为意义，但是芸芸众生，每个单独的个体，都是独一无二不可替代的。于是我想起了那句话：爱上丑陋。是呀，无论生活如何继续，抱着如此爱意而活着，也是需要莫大勇气的，忘掉这重复虚妄的世界，拥抱生活吧。</p>
-<p>那接下来还是要说《许三观卖血记》了，余华最出名的两个短篇小说。依旧是那么直白，他的旁观者视角让人无由的对生活的主角—自己，进行了思考，没有过多的道理，就是将一个现实的生活摆在你面前，你从中看到的，不仅仅是那个时代，更是自身，抑或是最原始、最能够触动人心的对终极的探索，那是最伟大的情感，那是最伟大的思想。余华读着是真的累。</p>
-<p>《我不是潘金莲》，去年上映，因为错过了电影，又因为刘震云这个名字重新唤醒了我的某些记忆，我决定先读书，再看电影。知道刘震云，也是从他之前和冯小刚的合作《一地鸡毛》开始的，知道有这么一个荒诞的人，却没有对他有过什么更深的了解。这个故事看上去如此的荒诞不经，如果再深入一些，活脱脱一个局外人，但是作者没有从这个角度来写，这个故事，还是要放在中国这么一个社会下才有意义。讽刺也有，但书中体现的更多是荒诞。李雪莲的人生，就是从那个荒诞的离婚开始讲述，每个人都关注于自身所能涉及到的层面，不同人之间仿佛真的有一个次元壁，他们无法沟通，却又如此真实，或许可以从不同维度来说，每个人都是隐喻，每个人都代表一种互相没有交集的直线。就是这样。</p>
-<p>《鼠疫》《局外人》没能读到精髓，或许应该再读一遍，或许翻译之后，少了些神韵。总之只能结合加缪的思想来看，那种悲壮的、决绝的、义无反顾的精神。如果加缪能够成为最年轻的诺贝尔文学奖得主，那么村上春树应该也能获奖才对。</p>
-<p>苏童是我觊觎已久的一名作家，但是《妻妾成群》放到现在，已经很难让人产生共鸣了，颂莲来到陈府，很难让人不联想到黛玉进大观园，封建的悲剧不仅仅体现在对劳动人民的压迫上，更多的，是一种末世的颓废，一种无法言说的命运感。当然，精细的刻画和对女性心理精确的把握，让这本小说名垂青史，却也让很多人难以深入其中，所谓的没有代入感就是这么个意思吧。</p>
-<p>最后，要说说《苏菲的世界》，在我看来，这真的不是一本哲学入门书，更像是一本童话，一本终将变成现实的科幻小说。它披着哲学的外衣，向你讲述着世界与我们每个人的故事，略显生硬，但是道理就是这么个道理。可以把它看成是一本参考书，时常翻阅，温故知新。</p>
-<p>今年的读书报告就写这么多吧，这么多字是我这段之间中写的最多的，也是断断续续很多天拼凑起来的，读书写字我总以为要一以贯之，一口气读完、写完才有那种酣畅淋漓的畅快感，这样断断续续，停留了这么久的读书报告，也是头一次了，但是显然写字是需要状态的，灵感不在，很难写出东西来，就像这次，一月一日的下午，休息了足够久的脑袋，在这么一个昏暗的办公室，写下了这些不成逻辑的文字。好像略微填充了这三天的空虚？</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/" data-id="clauebqs3000j6ovr30bqfsw6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
 
     </footer>
   </div>
@@ -615,7 +615,7 @@ with \quad 1\leq j \leq N,and \quad 1\leq t \leq T-1</script></li>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2018-12-30-Bayes/" data-id="clauebqs4000m6ovr6q0d40z5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2018-12-30-Bayes/" data-id="clauejinw000mk8vrdu5o7bvl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
@@ -695,10 +695,53 @@ YY^T=(PX)(PX)^T=P(XX^T)P^T=PCP^T</script><p>为了使得<script type="math/tex">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2019-03-27-PCA/" data-id="clauebqs5000o6ovraefi5nhl" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2019-03-27-PCA/" data-id="clauejinx000ok8vr61rj31wd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2017-05-02-越辩愈明的道理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2017-05-02-%E8%B6%8A%E8%BE%A9%E6%84%88%E6%98%8E%E7%9A%84%E9%81%93%E7%90%86/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.676Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/23/2017-05-02-%E8%B6%8A%E8%BE%A9%E6%84%88%E6%98%8E%E7%9A%84%E9%81%93%E7%90%86/">愈辩愈明的道理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>公说公有理，婆说婆有理</p>
+<hr>
+<p>讨论一下公说公有理，婆说婆有理的问题。如果遇到这种问题，不要妄下结论，因为这时问题的正确与否是次要的，主要的是看这个问题是谁说的，所以就有了公说公有理，婆说婆有理的局面。首先先问他是否是公或婆，如果是，那么他就是对的，但是这时候如果按照真理掌握在少数人手中这一论断来看，是另一个人正确了，公与吾皆错。但如果按照少数服从多数这一论断看，我与公皆对矣。也就是说，不仅要看是谁说的，还要看人数的多少，历史上这种事件一般是以少数服从多数而结束的，像哥白尼、达尔文。再从头看，如果一个人是公，一个人是婆，那又该支持谁呢？这是一个大问题，我始终没能想明白。  </p>
+<p>凡事如果问为什么，那么这个世界就太矛盾了。你问问什么中国人烧香拜佛，却又无宗教感；你问为什么做人既要国事家事天下事事事关心，却又要各人自扫门前雪，休管他人瓦上霜；为什么公说公有理，婆说婆有理；什么有少数多数这一问题。越来越多的矛盾，哲学上说的好，这个世界就是一个矛盾而又统一的世界，处处有矛盾，不论大小。没有矛盾，创造矛盾，解决矛盾，这是一个螺旋上升的过程。  </p>
+<p>“信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知“，道德经最后有云。所以说啊，我的这个文章也是一样的，看似写了很多道理，但是这些道理一旦付诸文字、语言，就失去了它的真理性，只是变成了纯粹的文字，想要讲这些道理讲的明白，无异于天方夜谭，痴人说梦。面对熙熙攘攘的世间理，明白是一回事，说出来又是一回事，这玄而又玄的道理，还真的是讲不明白啊。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2017-05-02-%E8%B6%8A%E8%BE%A9%E6%84%88%E6%98%8E%E7%9A%84%E9%81%93%E7%90%86/" data-id="clauejinp0009k8vr93jid0os" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
 
     </footer>
   </div>
@@ -751,53 +794,10 @@ YY^T=(PX)(PX)^T=P(XX^T)P^T=PCP^T</script><p>为了使得<script type="math/tex">
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2015-12-03-Mojette/" data-id="clauebqru00066ovr509k6r5m" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/11/23/2015-12-03-Mojette/" data-id="clauejinq000ak8vrgllwhdcd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2017-05-02-越辩愈明的道理" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/11/23/2017-05-02-%E8%B6%8A%E8%BE%A9%E6%84%88%E6%98%8E%E7%9A%84%E9%81%93%E7%90%86/" class="article-date">
-  <time datetime="2022-11-23T06:37:52.676Z" itemprop="datePublished">2022-11-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/11/23/2017-05-02-%E8%B6%8A%E8%BE%A9%E6%84%88%E6%98%8E%E7%9A%84%E9%81%93%E7%90%86/">愈辩愈明的道理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>公说公有理，婆说婆有理</p>
-<hr>
-<p>讨论一下公说公有理，婆说婆有理的问题。如果遇到这种问题，不要妄下结论，因为这时问题的正确与否是次要的，主要的是看这个问题是谁说的，所以就有了公说公有理，婆说婆有理的局面。首先先问他是否是公或婆，如果是，那么他就是对的，但是这时候如果按照真理掌握在少数人手中这一论断来看，是另一个人正确了，公与吾皆错。但如果按照少数服从多数这一论断看，我与公皆对矣。也就是说，不仅要看是谁说的，还要看人数的多少，历史上这种事件一般是以少数服从多数而结束的，像哥白尼、达尔文。再从头看，如果一个人是公，一个人是婆，那又该支持谁呢？这是一个大问题，我始终没能想明白。  </p>
-<p>凡事如果问为什么，那么这个世界就太矛盾了。你问问什么中国人烧香拜佛，却又无宗教感；你问为什么做人既要国事家事天下事事事关心，却又要各人自扫门前雪，休管他人瓦上霜；为什么公说公有理，婆说婆有理；什么有少数多数这一问题。越来越多的矛盾，哲学上说的好，这个世界就是一个矛盾而又统一的世界，处处有矛盾，不论大小。没有矛盾，创造矛盾，解决矛盾，这是一个螺旋上升的过程。  </p>
-<p>“信言不美，美言不信。善者不辩，辩者不善。知者不博，博者不知“，道德经最后有云。所以说啊，我的这个文章也是一样的，看似写了很多道理，但是这些道理一旦付诸文字、语言，就失去了它的真理性，只是变成了纯粹的文字，想要讲这些道理讲的明白，无异于天方夜谭，痴人说梦。面对熙熙攘攘的世间理，明白是一回事，说出来又是一回事，这玄而又玄的道理，还真的是讲不明白啊。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/11/23/2017-05-02-%E8%B6%8A%E8%BE%A9%E6%84%88%E6%98%8E%E7%9A%84%E9%81%93%E7%90%86/" data-id="clauebqrx000a6ovrhwe2bohb" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
 
     </footer>
   </div>
@@ -860,11 +860,11 @@ YY^T=(PX)(PX)^T=P(XX^T)P^T=PCP^T</script><p>为了使得<script type="math/tex">
           </li>
         
           <li>
-            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
           </li>
         
           <li>
-            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
           </li>
         
           <li>
@@ -872,7 +872,7 @@ YY^T=(PX)(PX)^T=P(XX^T)P^T=PCP^T</script><p>为了使得<script type="math/tex">
           </li>
         
           <li>
-            <a href="/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/">决策树</a>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
           </li>
         
       </ul>
