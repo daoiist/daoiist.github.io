@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>统计学习 | daoist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在最终的分析中，所有知识皆为历史。 在抽象的意义下，所有科学皆为数学。 在理性的世界里，所有判断皆为统计。  最近经常看到一个三门问题，三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统计学习">
+<meta property="og:url" content="http://example.com/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="daoist">
+<meta property="og:description" content="在最终的分析中，所有知识皆为历史。 在抽象的意义下，所有科学皆为数学。 在理性的世界里，所有判断皆为统计。  最近经常看到一个三门问题，三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/Yann%20Lecun.jpg">
+<meta property="article:published_time" content="2022-11-23T06:37:52.696Z">
+<meta property="article:modified_time" content="2022-11-23T07:48:03.005Z">
+<meta property="article:author" content="daoist">
+<meta property="article:tag" content="杂文">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/Yann%20Lecun.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="daoist" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">daoist</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-08-16-统计学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.696Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      统计学习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在最终的分析中，所有知识皆为历史。</p>
+<p>在抽象的意义下，所有科学皆为数学。</p>
+<p>在理性的世界里，所有判断皆为统计。</p>
+<hr>
+<p>最近经常看到一个三门问题，三门问题（Monty Hall problem）亦称为蒙提霍尔问题、蒙特霍问题或蒙提霍尔悖论，大致出自美国的电视游戏节目Let’s Make a Deal。问题名字来自该节目的主持人蒙提·霍尔（Monty Hall）。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车，选中后面有车的那扇门可赢得该汽车，另外两扇门后面则各藏有一只山羊。当参赛者选定了一扇门，但未去开启它的时候，节目主持人开启剩下两扇门的其中一扇，露出其中一只山羊。主持人其后会问参赛者要不要换另一扇仍然关上的门。问题是：换另一扇门会否增加参赛者赢得汽车的机率？</p>
+<p>面对这个问题，大部分人从常识的角度来讲，都会说换与不换应该都是一样的结果，即获得汽车的概率不会改变，为1/3。但是其实这个问题并没有这么简单，我们来用统计方法推导一下。</p>
+<p>如果严格按照上述的条件，即主持人清楚地知道，自己打开的那扇门后是羊，那么选手首先选择的门后为羊的概率为2/3，之后主持人打开一扇有羊的门，选手如果选择换，则一定会选到汽车，如果选择不换，则选到车的概率为0，那么可知，如果选手第一次选羊，则最终一定会换到车，即概率为2/3。如果选手第一次选到汽车1/3，那么换门一定会选到羊概率为1/3。由此可知，选择换门可以提高获得车的概率，使其有1/3提升到2/3。</p>
+<p>这是一个非常反常识的例子，人们从直觉上会认为换与不换结果都是一样的，但是其实换门会让选到车的概率增大一倍。</p>
+<p>再来看一个反常识的例子：史蒂芬，30岁，美国人。史蒂芬的一位邻居这样描述他：「史蒂芬害羞且內向，总是愿意提供帮忙，但对一般大众或社会议题沒有什么参与兴趣。他的性格柔弱顺从，他渴求秩序并讲究细节。」请问史蒂芬目前最可能的职业是销售还是图书馆管理员？</p>
+<p>大部分人看到这个描述，第一反应就是：史蒂芬是图书管理员。内向害羞的人怎么能成为销售呢，他一定是一个图书管理员。但实际上，在美国有一千五百万名销售员，仅有十八万名图书管理员，也就是说销售的几率是图书管理员的83倍，如果我们不考虑对其性格的描述的话。也就是说我们大多数人会自动忽略这个销售人员数量的先验知识，而只以自己获得的主观信息进行判断。</p>
+<p>类似的例子还有彩票，假设我们购买彩票中奖的概率为五百万分之一，一般人就会认为我们购买彩票中奖的几率为0了，但实际上我们根据墨菲定律来看一下，每次不中奖的概率为1-1/5000000，那么如果我们买的次数足够多为n次，中奖几率就会必成<script type="math/tex">1-(1-1/5000000)^n</script>，只要n足够大，就可以获得足够大的中奖几率，只不过我们需要买足够多的彩票才可以。例如我们购买了1000000次的彩票，那么，获奖的概率将会达到18.1%，将会有相当高的中奖几率。所以说只要一个人孜孜不倦的购买彩票，最终会无限接近中奖的。换个说法，只要有足够多的人购买，那么总会有人中奖。</p>
+<p>上边三个例子都说明了一个问题，人类的直觉在统计结果面前，往往显得不那么正确，通常人们是以定性而非定量的方式进行思考，也容易走进统计的误区。所以不妨想想怎么以定量的方法来进行计算，以更加客观的方法将我们遇到的问题量化为数字，复杂的问题也能够一目了然。</p>
+<h3 id="从统计学到机器学习-在理性的世界里，所有判断皆为统计。"><a href="#从统计学到机器学习-在理性的世界里，所有判断皆为统计。" class="headerlink" title="从统计学到机器学习-在理性的世界里，所有判断皆为统计。"></a>从统计学到机器学习-在理性的世界里，所有判断皆为统计。</h3><p>统计学不断渗透到各个领域学科之中，其中就包括计算机科学。利用量化计算和历史数据，经过相关模型和算法的迭代，使计算机自己判断和识别计算的结果，从而达到模式识别、逻辑判断、分类聚类等能力。</p>
+<p>通过无数跨学科（物理、生物、心理）的专家学者的努力，参照统计物理、神经元、人类的心理学等，历经漫长的岁月，最终建立起了人工智能这一跨领域的新兴学科。参照人类学习的过程，人的绝大部分智能是通过后天训练与学习得到的，而不是天生具有的。新生儿刚出生的时候没有视觉和听觉认知能力，在成长的过程中宝宝从外界环境不断得到信息，对大脑形成刺激，从而建立起认知的能力。要给孩子建立“苹果”、“香蕉”、“熊猫”这样的抽象概念，我们需要给他看很多苹果、香蕉的实例或者图片，并反复的告诉他这些水果的名字。经过长期训练之后，终于在孩子的大脑中形成了“苹果”、“香蕉”这些抽象概念和知识，以后他就可以将这些概念运用于眼睛看到的世界。</p>
+<p>机器学习运用了类似的思路，首先从大量的标记样本中提取特征，然后利用统计学习的方法建立模型，得出相同标记的物体的统计模型，接下来就可以用这个模型来对新的图像进行识别了。当然，这种做法只是代表了机器学习中一类典型的算法，称为有监督的学习。除此之外，还有无监督学习、半监督学习、强化学习等其他类型的算法。</p>
+<p>历史上出现了相当多的统计学习建模方法，如分类树、SVM、Boost、随即森林等，每种方法刚问世时都是名噪一时，都在各自擅长的领域取得了很好的成绩，直到2012年Hinton小组发明了卷积神经网络AlexNet，取得了当前所有模型中最好的性能。之所以深度学习能够一统江湖，是有其深刻的原因的。SVM、AdaBoost等所谓的浅层模型并不能很好的解决复杂的图像、语音识别问题，在这些问题上会出现严重的过拟合。举个例子，我们通常所讲的机器翻译其实就是一个浅层模型，它根据目标语言与翻译语言之间简单的单词、文字的对应关系进行翻译，并不能上升到识别语义的高度，而通常人类翻译时会先将目标语言看懂，理解其含义，再使用翻译语言将其重新描述出来。深度学习之所以如此好的性能，前Google Brain研究科学家Christopher Olah在其一篇博文中曾经详细阐述过<a target="_blank" rel="noopener" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">“Deep Learning, NLP, and Representations”</a>，她用word embeddings为例说明了多层深度模型在语言处理上的优势。</p>
+<p>历史选择了深度神经网络作为解决图像、声音识别、围棋等复杂 AI 问题的方法并非偶然，神经网络在理论上有万能逼近定理（universal approximation）的保证：</p>
+<blockquote>
+<p>只要神经元的数量足够，激活函数满足某些数学性质，至少包含一个隐含层的前馈型神经网络可以逼近闭区间上任意连续函数到任意指定精度。即用神经网络可以模拟出任意复杂的函数。我们要识别的图像、语音数据可以看做是一个向量或者矩阵，识别算法则是这些数据到类别值的一个映射函数。</p>
+</blockquote>
+<p>所以现在深度学习除了能够识别较为浅层的特征（像素、纹理、轮廓）之外，还能够进一步将这些浅层特征进一步组合形成元件、组件、物体的深层次特征，也就更加符合人脑的运作模式，经过多层次的特征判断，识别物体。</p>
+<h3 id="AI的局限"><a href="#AI的局限" class="headerlink" title="AI的局限"></a>AI的局限</h3><p>机器学习最受批评之处在于现在计算机仍然无法自行产生可供检测的「特征」（feature）或「假设」（hypothesis），无法具有人类的常识，致使系统效用完全取決程序设计者个人的创造力。</p>
+<p>2018图灵奖获得者、美国工程院院士、Facebook人工智能研究院院长Yann Lecun在台大演讲时，也曾经讲过AI的局限：由于目前比较好的AI应用都是采用监督式学习，能够准确识别人工标示过的物体，也有些好的成果是用强化学习（Reinforcement Learning）的方式，但是强化学习需要大量地收集资料来训练模型，Yann LeCun表示，对应到现实社会中的问题，监督式学习不足以成为“真的”AI。 </p>
+<p><img src="/image/Yann Lecun.jpg" alt="YannLecun与LeNet5"></p>
+<p>他指出，人类的学习是建立在与事物互动的过程，许多都是人类自行体会、领悟出对事物的理解，不需要每件事都要教导，举例来说，若有个物体被前面的物体挡住，人类会知道后面的物体依然存在的事实，或是物体没有另一个物体支撑就会掉落的事实。 </p>
+<p>“人脑就是推理引擎！”他说明，人类靠着观察建立内部分析模型，当人类遇到一件新的事物，就能用这些既有的模型来推测，因为生活中人类接触到大量的事物和知识，而建立了“常识”。这些常识可以带领人类做出一些程序无法达到的能力，像是人类可以只看一半的脸就能想像另外一半脸，或是可以从过去的事件推测未来等。 </p>
+<p>他举例，若人类看到一张战利品放不下行李箱的图片，再看到一个句子说：”这些战利品放不下行李箱，因为它太小了。“人类能够很清楚地知道“它”指的是行李箱，人类也因为知道整个社会和世界运行的规则，当没有太多的信息时，人类可以依照因果关系自动补足空白的信息。</p>
+<p>他表示，对抗训练（Adversarial Training）是可以让 AI 程序拥有自学能力的方法，他解释，对抗训练就是让两个网络相互博奕，由生成器（Generator）和判别器（Discriminator）组成，生成器随机地从训练集中挑选真实数据和干扰噪音，产生新的训练样本，判别器再用与真实数据比对的方式，判断出数据的真实性，如此一来，生成器与判别器可以交互学习自动优化预测能力，创造最佳的预测模型。</p>
+<h2 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzA5ODUxOTA5Mg==&amp;mid=2652565686&amp;idx=2&amp;sn=b1cbbac765d04390fbd2e3d01fdba8ae&amp;chksm=8b7e01edbc0988fb7a6f88dd54ba00ce17a3a0cb65ef7d8272c21a760509f6e2bca0b2d3e70e&amp;mpshare=1&amp;scene=24&amp;srcid=&amp;key=68be3ae943e49b4f55c046d46e65977a73f3eb5fa0f295a1253d6a4d5a1410db1f7ef4e1fa67da908ed061703af6a74346402ab6c78b92b1fb4415ded210828c50874739b051a9b55d4ac911c1df89b2&amp;ascene=14&amp;uin=MTY0NzA5ODg4MQ%3D%3D&amp;devicetype=Windows+7&amp;version=62060833&amp;lang=zh_CN&amp;pass_ticket=t917oPftJtYv14omNOqI3bw%2BnyXGAViJisiJzM7hgmWtrY7lfgVYdw1cAmc5ZtuI">LeCun台大演讲：AI最大缺陷是缺乏常识，无监督学习突破困境</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://ccjou.wordpress.com/2009/04/29/%E8%B2%9D%E6%B0%8F%E5%AE%9A%E7%90%86-%E9%87%8F%E5%8C%96%E6%80%9D%E8%80%83%E7%9A%84%E5%88%A9%E5%99%A8/">貝氏定理──量化思考的利器</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://tensorinfinity.com/paper_208.html">理解计算 从根号2到AlphaGo第八季 孤独的人们</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://colah.github.io/posts/2014-07-NLP-RNNs-Representations/">Deep Learning, NLP, and Representations</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://www.sohu.com/a/332260644_236505">概率的意义:随机世界与大数法则</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" data-id="claudpaec0013pkvrdz5yc9eq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/23/2019-07-20-HMM/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HMM
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">张家界</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%9D%82%E6%96%87/" style="font-size: 10px;">杂文</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 15px;">游记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/">写于2019五一假期之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/">张家界</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 daoist<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

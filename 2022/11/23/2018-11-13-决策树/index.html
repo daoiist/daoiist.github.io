@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>决策树 | daoist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="你是否玩过二十个问题的游戏，游戏的规则很简单：参与游戏的一方在脑海里想某个事物，其他参与者向他提问题，只允许提20个问题，问题的答案也只能用对或错回答。问问题的人通过推断分析，逐步缩小待猜测事物的范围。决策树的工作原理与20个问题类似（如图1），用户输入一系列数据，然后给出游戏的答案。正方形代表判断模块，椭圆形代表终止模块，表示已经得出结论，可以终止运行。  图 1 决策树示例 接下来，我们引入">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树">
+<meta property="og:url" content="http://example.com/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/index.html">
+<meta property="og:site_name" content="daoist">
+<meta property="og:description" content="你是否玩过二十个问题的游戏，游戏的规则很简单：参与游戏的一方在脑海里想某个事物，其他参与者向他提问题，只允许提20个问题，问题的答案也只能用对或错回答。问问题的人通过推断分析，逐步缩小待猜测事物的范围。决策树的工作原理与20个问题类似（如图1），用户输入一系列数据，然后给出游戏的答案。正方形代表判断模块，椭圆形代表终止模块，表示已经得出结论，可以终止运行。  图 1 决策树示例 接下来，我们引入">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/决策树.jpg">
+<meta property="og:image" content="http://example.com/image/决策树3.jpg">
+<meta property="og:image" content="http://example.com/image/决策树4.png">
+<meta property="article:published_time" content="2022-11-23T06:37:52.686Z">
+<meta property="article:modified_time" content="2019-05-24T07:05:24.020Z">
+<meta property="article:author" content="daoist">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/决策树.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="daoist" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">daoist</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-11-13-决策树" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.686Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      决策树
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>你是否玩过二十个问题的游戏，游戏的规则很简单：参与游戏的一方在脑海里想某个事物，其他参与者向他提问题，只允许提20个问题，问题的答案也只能用对或错回答。问问题的人通过推断分析，逐步缩小待猜测事物的范围。决策树的工作原理与20个问题类似（如图1），用户输入一系列数据，然后给出游戏的答案。正方形代表判断模块，椭圆形代表终止模块，表示已经得出结论，可以终止运行。</p>
+<p><img src="/image/决策树.jpg" alt="决策树示例"></p>
+<p>图 1 决策树示例</p>
+<p>接下来，我们引入信息论的一些概念来做为铺垫。信息论是由“信息论之父”克劳德·香农于1948年的论文《通信的数学理论》里首先提出，这里信息的定义是“facts or details that tell you something about a situation、 person、 event、 etc”。信息论作为现代通讯系统的基础，我们这里并不做深入探讨，我们只需要了解其中一个概念，信息熵。当我们不知道某事物的具体状态，却知道它有几种可能性时，显然，可能性种类愈多，不确定性愈大。而熵就是对这种不确定性的度量。在热力学第二定律中，我们知道物质世界总是自发的由有序转化为无序，即由低熵转化为高熵，这也是为什么很多分布为高斯分布的原因。</p>
+<p>在信息论中，划分数据的最大原则是：将无序的数据变得更加有序。用信息论的说法，就是根据某个特征划分数据集获得的信息增益，信息增益最高的特征就是最好的选择。如何评价信息增益，其度量方式就是熵（entropy）。熵定义为信息的期望值，如果待分类的事务可能划分在多个分类之中，则符号<script type="math/tex">x_i</script>的信息定义为：</p>
+<script type="math/tex; mode=display">l(x_i)=-log_2 p(x_i)</script><p>其中<script type="math/tex">p(x_i)</script>是选择给分类的概率。</p>
+<p>为了计算熵，我们需要计算其期望值：</p>
+<script type="math/tex; mode=display">H=-\sum_{i=1}^{n} p(x_i) log_2 p(x_i)</script><p>其中n是分类的数目。</p>
+<p>有了信息熵和信息增益的概念，我们就可以方便的构建出决策树了。为了更好的说明构建一个决策树的过程，我们给出一个具体的示例。我们使用一个预测患者隐形眼镜类型的案例来进行说明。首先，我们需要理解眼科医生是如何判断患者的隐形眼镜的类型的。如果患者的眼睛缺少眼泪，我们可以判断他不适合佩戴隐形眼镜；接下来我们再根据是否散光、年龄、近视还是远视这总共4个问题，就可以判断患者是否需要佩戴隐形眼镜，以及隐形眼镜的类型、材质（软、硬）。</p>
+<p><img src="/image/决策树3.jpg" alt=""> </p>
+<p>图 2 隐形眼镜配戴决策树</p>
+<p>对于一名医生，他可以根据自己的经验对患者进行判断，但是如果我们把它交给计算机来判断，就要给他定下一个固定的问题顺序，比方说先问年龄，在问是否近视，然后是散光、眼泪量，这时候就有一个显著的问题出现了，我们应该根据什么来判断这个顺序呢，难道只是随机的么？这显然不符合科学的精神，这时就需要我们利用之前提到的信息增益的概念了。</p>
+<p>对于这个问题，它显然是带有信息的，我们如果能够让它尽量有序的排列，而不是混乱的排列，就可以更加一目了然和简单的构建一个信息分类或者说决策树。假设对于一个样本来说，眼睛干涩的人数占10%，正常的人占90%，远视的占50%，近视的占50%，我们就可以利用这两个特征来分别计算信息熵，从而得出按哪一个特征分类的熵较低，也就可以根据此特征不断的对样本进行分类。</p>
+<p>首先计算眼睛是否干涩的信息熵：</p>
+<script type="math/tex; mode=display">H(A)=-(0.1 \times log_2 (0.1)+0.9 \times log_2 (0.9))=0.469</script><script type="math/tex; mode=display">H(B)=-(0.5 \times log_2 (0.5)+0.5 \times log_2 (0.5))=1</script><p>可以看到，计算出来的对于眼睛干涩与否的熵要小于按照近视、远视来分类得到的熵，于是我们就可以说，按照眼睛是否干涩来进行区分的话，得到的信息增益会更大，这个特征对于我们进行数据分析时的影响也较大，我们就可以首先使用这个特征进行分类，也就是画出了决策树中的第一个分叉。接下来就根据已经分好的数据再计算其他几个特征的信息熵和信息增益，不断的一步步的向下分类，就可以得到整颗决策树了。</p>
+<p>可以看到，这个原理是非常简单的，我们根据UCI数据集中的lenses数据<sup><a href="#fn_1" id="reffn_1">1</a></sup>和python<sup><a href="#fn_2" id="reffn_2">2</a></sup>对其进行了实验，最终使用了不到200行的代码，就构建出了如下的决策树：</p>
+<p><img src="/image/决策树4.png" alt=""> </p>
+<p>图3 最终构建的决策树</p>
+<p>决策树的使用非常广泛，在数据类型为数值型、标称型和离散型数据中都可以应用。目前在专家系统中也经常使用决策树，而且决策树给出结果往往可以匹敌在当前领域具有几十年工作经验的人类专家。其优点为：计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。但是它也有很多缺点：例如易产生过度拟合的数据，因此在工程实际应用中，还需要对其做更为系统的优化才能匹配具体的问题。</p>
+<p>细心的读者可能已经发现了，决策树的概念和失效分析故障树的概念十分类似，我们完全可以利用决策树的概念来进行失效分析，假设我们拥有某电子元器件的失效分析数据，我们就可以利用其具体的分析数据为划分数据的特征，不断的通过决策树中的分叉来进行故障的定位，最终得到失效分析的结果。</p>
+<p>参考文献</p>
+<p><sup><a href="#fn_1" id="reffn_1">1</a></sup>:UCI数据集lenses数据 <a target="_blank" rel="noopener" href="https://archive.ics.uci.edu/ml/datasets/Lenses">https://archive.ics.uci.edu/ml/datasets/Lenses</a></p>
+<p><sup><a href="#fn_2" id="reffn_2">2</a></sup>:Peter Harrington，《机器学习高清实战》，北京：人民邮电出版社，2013</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/" data-id="claudpaeb0012pkvreyspakrh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/23/2019-03-27-PCA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          PCA
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/23/2015-12-03-Mojette/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Mojette</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%9D%82%E6%96%87/" style="font-size: 10px;">杂文</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 15px;">游记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/">写于2019五一假期之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/">张家界</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 daoist<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

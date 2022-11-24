@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Mojette | daoist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Mojette Transform是由Polytech Nantes的IRCCYyN实验室的Jean pierre Guédon首先提出的一种离散的几何转换，它来源于Radon transform，是Radon transform的离散的更准确的表达。 Radon transform  Radon transform 是将在一个坐标系中的几何形状以一定的角度映射到一个新的坐标上，如上图所示，在笛卡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mojette">
+<meta property="og:url" content="http://example.com/2022/11/23/2015-12-03-Mojette/index.html">
+<meta property="og:site_name" content="daoist">
+<meta property="og:description" content="Mojette Transform是由Polytech Nantes的IRCCYyN实验室的Jean pierre Guédon首先提出的一种离散的几何转换，它来源于Radon transform，是Radon transform的离散的更准确的表达。 Radon transform  Radon transform 是将在一个坐标系中的几何形状以一定的角度映射到一个新的坐标上，如上图所示，在笛卡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/mojette1.png">
+<meta property="og:image" content="http://example.com/image/mojette2.png">
+<meta property="og:image" content="http://example.com/image/mojette3.png">
+<meta property="og:image" content="http://example.com/image/mojette4.png">
+<meta property="og:image" content="http://example.com/image/mojette5.png">
+<meta property="og:image" content="http://example.com/image/mojette6.png">
+<meta property="article:published_time" content="2022-11-23T06:37:52.676Z">
+<meta property="article:modified_time" content="2019-05-24T07:04:37.860Z">
+<meta property="article:author" content="daoist">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/mojette1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="daoist" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">daoist</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-12-03-Mojette" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2015-12-03-Mojette/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.676Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Mojette
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>Mojette Transform</em>是由Polytech Nantes的IRCCYyN实验室的Jean pierre Guédon首先提出的一种离散的几何转换，它来源于Radon transform，是Radon transform的离散的更准确的表达。</p>
+<h1 id="Radon-transform"><a href="#Radon-transform" class="headerlink" title="Radon transform"></a>Radon transform</h1><p><img src="/image/mojette1.png" alt=""></p>
+<p><img src="/image/mojette2.png" alt=""></p>
+<p>Radon transform 是将在一个坐标系中的几何形状以一定的角度映射到一个新的坐标上，如上图所示，在笛卡尔坐标系中的椭圆以角度θ映射到了一个新的坐标系中，其公式如下：</p>
+<script type="math/tex; mode=display">proj(t,\theta)=\int\int{f(x,y)\delta(t-x \cdot \theta + y \cdot sin \theta)dxdy}</script><p>符号δ表示面积相等</p>
+<h1 id="Mojette-Transform"><a href="#Mojette-Transform" class="headerlink" title="Mojette Transform"></a>Mojette Transform</h1><p>Radon是连续的，Mojette则是离散的。</p>
+<p><img src="/image/mojette3.png" alt=""></p>
+<p><img src="/image/mojette4.png" alt=""></p>
+<p><img src="/image/mojette5.png" alt=""></p>
+<p>其转换公式为:</p>
+<script type="math/tex; mode=display">proj(p,q,b)=\sum{f(k,l)\Delta(b-pl+qk)}</script><p> 其中，q、p为投影的方向，k、l为坐标，b=pl-qk。 可以证明，在(p,q)方向上，共有<script type="math/tex">nbins=(H-1)\vert q \vert+(W-1) \vert p  \vert +1</script>个新的坐标值（如上图，在4*4的矩形中，在(1,0)方向上有4个新的坐标值，在(1,1)方向上有7个新的坐标值）</p>
+<p> 任意大小的矩形的mojette变换的算法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Begin</span><br><span class="line"></span><br><span class="line"> rectangle&#x27;s height and width is H and W, the projection angle is p and q</span><br><span class="line"></span><br><span class="line"> nbins=(H-1)|q|+(W-1)|p|+1</span><br><span class="line"></span><br><span class="line"> //为了方便，我们从0开始计算的新的坐标值，即从0到nbins-1</span><br><span class="line"></span><br><span class="line"> //计算补偿值，每个坐标的投影后的新的坐标减去这个补偿值即可</span><br><span class="line"></span><br><span class="line"> HL=p(H-1)</span><br><span class="line"></span><br><span class="line"> HR=p(H-1)-q(W-1)</span><br><span class="line"></span><br><span class="line"> LR=-q(W-1)</span><br><span class="line"></span><br><span class="line"> LL=0</span><br><span class="line"></span><br><span class="line"> if HL&lt;HR then offset=HL else offset=HR</span><br><span class="line"></span><br><span class="line"> if LR&lt;offset then offset=LR</span><br><span class="line"></span><br><span class="line"> if LL&lt;offset then offset=LL</span><br><span class="line"></span><br><span class="line"> //开始计算每个坐标对应的投影的值</span><br><span class="line"></span><br><span class="line"> for k=0:W-1</span><br><span class="line"></span><br><span class="line">  for l=0:H-1</span><br><span class="line"></span><br><span class="line">   b=pl-qk</span><br><span class="line"></span><br><span class="line">   proj(b-offset)+=f(k,l)</span><br><span class="line"></span><br><span class="line">  end for</span><br><span class="line"></span><br><span class="line"> end for</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>例：</p>
+<p><img src="/image/mojette6.png" alt=""></p>
+<p> 如上图，假设为5*4的矩阵，横坐标k，纵坐标l，投影方向为(2,1)，首先对四个角计算其b值，将最小的设为offset，以(0,0)这一列为例计算其投影之后的值，在这一列上，共有(0,0),(2,1),(5,3)三个坐标，其b(b=pl-qk)值都为0，但是我们是从0开始索引，所以b-offset=4即为我们新的投影的坐标，而在新投影上的值为这三个值的和。</p>
+<p> 通过以上算法即可计算在任意大小的矩阵中任意投影方向的Mojette变换，但在实际应用中，反mojette变换才是最有用的，inverse-mojette将在下一篇博客中具体介绍。</p>
+<p> 如果有兴趣，可以登录<a target="_blank" rel="noopener" href="http://www.mojette.net/">http://www.mojette.net/</a> 查看关于Mojette的一个小游戏，其正是inverse-mojette变换的具体实例。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2015-12-03-Mojette/" data-id="claudpadv0009pkvr6b5xap2p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          决策树
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/23/2017-05-08-%E5%8F%B2%E4%B8%8A%E6%9C%80%E5%BC%BA%E6%A1%82%E6%9E%97%E6%97%85%E6%B8%B8%E6%94%BB%E7%95%A5/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">史上最强桂林旅游攻略</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%9D%82%E6%96%87/" style="font-size: 10px;">杂文</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 15px;">游记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/">写于2019五一假期之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/">张家界</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 daoist<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

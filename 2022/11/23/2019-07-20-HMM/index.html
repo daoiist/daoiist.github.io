@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HMM | daoist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="马尔可夫链的命名来自于俄国数学家安德雷·马尔可夫，以纪念其首次定义马尔科夫链和对其收敛性质所做的研究。Leonard E. Baum在1967年首次提出了隐马尔科夫链模型的基础理论。在70年代，其第一次应用于语音识别，并在80s被大规模理解和应用于多个领域之中。隐马尔科夫链由于其独特的建模方式，与其它机器学习方法有着本质的不同。常用的算法如SVM、神经网络等，其核心为找到两种模式之间的区别，即尽可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HMM">
+<meta property="og:url" content="http://example.com/2022/11/23/2019-07-20-HMM/index.html">
+<meta property="og:site_name" content="daoist">
+<meta property="og:description" content="马尔可夫链的命名来自于俄国数学家安德雷·马尔可夫，以纪念其首次定义马尔科夫链和对其收敛性质所做的研究。Leonard E. Baum在1967年首次提出了隐马尔科夫链模型的基础理论。在70年代，其第一次应用于语音识别，并在80s被大规模理解和应用于多个领域之中。隐马尔科夫链由于其独特的建模方式，与其它机器学习方法有着本质的不同。常用的算法如SVM、神经网络等，其核心为找到两种模式之间的区别，即尽可">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/weatherTopological.png">
+<meta property="og:image" content="http://example.com/image/HMM1.jpg">
+<meta property="og:image" content="http://example.com/image/HMM2.jpg">
+<meta property="og:image" content="http://example.com/image/HMM3.jpg">
+<meta property="article:published_time" content="2022-11-23T06:37:52.696Z">
+<meta property="article:modified_time" content="2019-09-17T02:27:34.520Z">
+<meta property="article:author" content="daoist">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/weatherTopological.png">
+  
+    <link rel="alternate" href="/atom.xml" title="daoist" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">daoist</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-07-20-HMM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2019-07-20-HMM/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.696Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HMM
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>马尔可夫链的命名来自于俄国数学家安德雷·马尔可夫，以纪念其首次定义马尔科夫链和对其收敛性质所做的研究。<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Leonard_E._Baum">Leonard E. Baum</a>在1967年首次提出了隐马尔科夫链模型的基础理论。在70年代，其第一次应用于语音识别，并在80s被大规模理解和应用于多个领域之中。隐马尔科夫链由于其独特的建模方式，与其它机器学习方法有着本质的不同。常用的算法如SVM、神经网络等，其核心为找到两种模式之间的区别，即尽可能找到boundary来区分不同的种类。而HMM则是对当前模型特征进行建模，其生成结果为当前模型的序列特征。</p>
+<hr>
+<h2 id="HMM介绍"><a href="#HMM介绍" class="headerlink" title="HMM介绍"></a>HMM介绍</h2><p>隐马尔可夫模型是一个双随机过程，通过一个隐式的随机过程生成一系列的状态，HMM就是对这一过程进行数学建模。</p>
+<p>先来看一个例子：</p>
+<p>假设吉隆坡的天气有雨rain、多云cloudy、晴sunny三种情况组成，每种天气的转移概率已知，为：</p>
+<script type="math/tex; mode=display">
+\left[
+ \begin{matrix}
+   & R   & C   & S   \\
+ R & 0.4 & 0.3 & 0.3 \\
+ C & 0.2 & 0.6 & 0.2 \\
+ S & 0.1 & 0.1 & 0.8
+  \end{matrix}
+\right]</script><p>这个状态转移概率矩阵中，每一行的第一列分别代表了当前天气，后边三列则为第二天天气的概率，每行的概率之和为1。并且根据如上矩阵，可以得出一个拓扑环状概率转移图，从图中任一状态可以遍历到所有其他的状态。图中所述模型也就是最简单的马尔可夫模型。</p>
+<p><img src="/image/weatherTopological.png" alt=""></p>
+<p>假设今天的天气是晴天，让我们考虑以下几个问题：</p>
+<ol>
+<li>明天的天气会是什么？</li>
+<li>后天的天气会是什么？</li>
+<li>第四天的天气呢？</li>
+<li>接下来的天气为“晴-晴-雨-雨-晴-云-晴”的概率会是多大？</li>
+<li>连续若干天天气为雨的概率有多大？（假设连续3天）</li>
+<li>出现连续晴天、多云、雨的天数平均数是多少天？</li>
+</ol>
+<p>让我们一个接一个来回答，这里我们用下标代表第几天，上标代表天气：</p>
+<p>1.根据概率表，可以很简单的得出0.8的结论</p>
+<p>2.我们根据每个情况计算所有的可能性，可得：</p>
+<p>结果分别为：</p>
+<script type="math/tex; mode=display">P(q_{3}=q^{rain})=\sum_{\Gamma(q_{3}=q^{rain})} P(q_{1}) \times P(q_{2}) \times P(q_{3})=1 \times 0.8 \times 0.1 +1 \times 0.1 \times 0.2 +1 \times 0.1 \times 0.4=0.14</script><script type="math/tex; mode=display">P(q_{3}=q^{cloudy})=\sum_{\Gamma(q_{3}=q^{cloudy})} P(q_{1}) \times P(q_{2}) \times P(q_{3})=1 \times 0.8 \times 0.1 +1 \times 0.1 \times 0.6 +1 \times 0.1 \times 0.3=0.17</script><script type="math/tex; mode=display">P(q_{3}=q^{sunny})=\sum_{\Gamma(q_{3}=q^{summy})} P(q_{1}) \times P(q_{2}) \times P(q_{3})=1 \times 0.8 \times 0.8 +1 \times 0.1 \times 0.2 +1 \times 0.1 \times 0.3=0.69</script><p><img src="/image/HMM1.jpg" alt=""></p>
+<p>3.有了上边的结果，接下来只需要继续计算即可</p>
+<script type="math/tex; mode=display">P(q_{4}=q^{rain})=0.69 \times 0.1 +0.17 \times 0.2 +0.14 \times 0.4=0.159</script><p><img src="/image/HMM2.jpg" alt=""></p>
+<p>4.“晴-晴-雨-雨-晴-云-晴”序列的概率</p>
+<script type="math/tex; mode=display">P(q^{sunny},q^{sunny},q^{rain},q^{rain},q^{sunny},q^{cloudy},q^{sunny})\\
+=P(q^{sunny}|q^{sunny},q^{sunny}|q^{sunny},q^{rain}|q^{sunny},q^{rain}|q^{rain},q^{sunny}|q^{rain},q^{cloudy}|q^{sunny},q^{sunny}|q^{cloudy})\\
+=0.8 \times 0.8 \times 0.1 \times 0.4 \times 0.3 \times 0.1 \times 0.2=1.5361 \times 10^{-4}</script><p>5.连续3天下雨的概率</p>
+<script type="math/tex; mode=display">P(q^{rain},q^{rain},q^{rain},q^{not rain})={0.4}^2 \times 0.6=0.096</script><p>6.连续某种天气的平均持续天数</p>
+<script type="math/tex; mode=display">\overline{d_i}=\sum_{d=1}^{\infty}d \times P_{i}(d)=\sum_{d=1}^{\infty}d \times a_{ii}^{d-1}(1-a_{ii})\\
+=(1-a_{ii})\sum_{d=1}^{\infty}d \times a_{ii}^{d-1}=(1-a_{ii})\frac{\partial}{\partial a_{ii}}\sum_{d=1}^{\infty} a_{ii}^{d}\\
+=(1-a_{ii})\frac{\partial}{\partial a_{ii}}(\frac{a_{ii}}{1-a_{ii}})=\frac{1}{1-a_{ii}}</script><h2 id="“隐”马尔可夫模型"><a href="#“隐”马尔可夫模型" class="headerlink" title="“隐”马尔可夫模型"></a>“隐”马尔可夫模型</h2><p>截至目前，我们只能看到一个显式的模型，观察到的状态即为我们最终需要的状态，但是显然很多实际物理模型中，我们只能观察到observation，而它们隐含的状态是无法直接观察到的，这时我们就需要对马尔可夫模型进行扩展。</p>
+<p>假设有三个骰子，我们进行投掷实验，每次的结果只是“正面”或“反面”两种状态，我们无法得知具体选择了哪个骰子进行了本次实验，也就无法如同之前那样建立模型来解释。此时我们就需要HMM来进行建模和解释，HMM就是在普通的马尔可夫模型上进行一些扩展。</p>
+<p>除了状态转移矩阵外，为了表示每个observation所隐含的状态以及选择到某个状态的概率，我们定义三个概率表来表示HMM。分别为：</p>
+<p>A：状态转移概率矩阵；B：observation概率；<script type="math/tex">\Pi</script>：初始状态概率。H代表header，T代表tail。</p>
+<script type="math/tex; mode=display">A= \left[
+ \begin{matrix}
+     & q^1 & q^2 & q^3 \\
+ q^1 & 1/3 & 1/3 & 1/3 \\
+ q^2 & 1/3 & 1/3 & 1/3 \\
+ q^3 & 1/3 & 1/3 & 1/3
+  \end{matrix}
+\right]</script><script type="math/tex; mode=display">B=\left[
+ \begin{matrix}
+     & q^1 & q^2 & q^3 \\
+ H & 0.5 & 0.75 & 0.25 \\
+ T & 0.5 & 0.25 & 0.75
+  \end{matrix}
+\right]</script><script type="math/tex; mode=display">\Pi=\left[
+ \begin{matrix}
+     & q^1 & q^2 & q^3 \\
+P(q) & 1/3 & 1/3 & 1/3
+  \end{matrix}
+\right]</script><p>有了这三个概率表，我们就能够回答一些相关的问题，例如已知某个observation序列，求最有可能得出此observation的状态序列，或者已知某个observation序列完全由某个状态所得的概率等。</p>
+<h2 id="HMM的三个基本问题"><a href="#HMM的三个基本问题" class="headerlink" title="HMM的三个基本问题"></a>HMM的三个基本问题</h2><p>根据HMM中得出的A、B、<script type="math/tex">\Pi</script>等矩阵，可以利用viterbi、baum-welch算法计算HMM中我们感兴趣的问题，如：模式识别、序列分析、参数计算等，我们分别进行讨论。</p>
+<p>在开始之前，我们首先定义一些符号，方便理解。<script type="math/tex">\lambda=(\Gamma,A,B)</script>参数能够最大化<script type="math/tex">P(X \vert \lambda)</script>；X：observation sequence；<script type="math/tex">\Gamma</script>：states sequence。</p>
+<h3 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h3><p>给出特定的observation序列，如何找到一个HMM模型使之拥有最大似然。即计算：</p>
+<script type="math/tex; mode=display">{\lambda}_{max}=\mathop{\arg\max}_{\lambda_i} P(X|{\lambda}_i) \qquad for \quad  i=1,...K</script><p>上式含义即为如何快速的找到一个HMM模型，使之对X得到最大的似然。例如手写英文字母的识别中，如何从26个HMM模型中快速计算哪个<script type="math/tex">\lambda</script>计算出此序列的值最大，那么可以判断此observation对应于具体某个字母。</p>
+<p>计算这个问题最大的困难在于效率，我们先来看怎样计算<script type="math/tex">P(X\vert\lambda)</script>。X(x1,x2,…,xt)为我们最终观察到的序列，可以通过不同的状态获得相同的观察序列。</p>
+<script type="math/tex; mode=display">P(X|\lambda)=\sum_{\Gamma}P(X,\Gamma|\lambda)=\sum_{\Gamma}P(X|\Gamma,\lambda) \times P(\Gamma|\lambda)</script><p>式中共有两个部分，一为<script type="math/tex">P(X\vert\Gamma,\lambda)</script>，另一部分为<script type="math/tex">P(\Gamma\vert\lambda)</script>，我们分别推导这两部分的公式，然后得出最终的时间复杂度。</p>
+<p>1.<script type="math/tex">P(X\vert\Gamma,\lambda)</script></p>
+<script type="math/tex; mode=display">P(X|\Gamma,\lambda)=P(x_1 x_2... x_T|q_1 q_2 ...q_T,\lambda)\\
+=P(x_1|q_1...q_T,\lambda) \times P(x_2|x_1,q_1...q_T,\lambda)...P(x_T|x_{T-1}...x_1,q_1...q_T,\lambda)\\
+=P(x_1|q_1,\lambda)\times P(x_2|q_2,\lambda)...P(x_T|q_T,\lambda)=\prod_{t=1}^{T}P(x_t|q_t,\lambda)</script><p>式中假设每个<script type="math/tex">x_t</script>仅仅依赖于<script type="math/tex">q_t</script></p>
+<p>2.<script type="math/tex">P(\Gamma\vert\lambda)</script></p>
+<script type="math/tex; mode=display">P(\Gamma|\lambda)=P(q_1q_2...q_T|\lambda)\\
+=P(q_1|\lambda)\times P(q_2|q_1,\lambda)...P(q_T|q_{T-1}...q_1,\lambda)\\
+=P(q_1|\lambda)\times P(q_2|q_1,\lambda)...P(q_T|q_{T-1},\lambda)\\
+=P(q_1|\lambda)\times \prod_{t=2}^T P(q_t|q_{t-1},\lambda)</script><p>式中假设每个时间点的状态仅仅依赖于上一个时间点的状态</p>
+<p>于是可以得到：<script type="math/tex">P(X\vert\lambda)=\sum_{\Gamma}\prod_{t=1}^{T}P({x_t}\vert{q_t},\lambda) \times P({q_1}\vert\lambda)\times \prod_{t=2}^T P({q_t}\vert{q_{t-1}},\lambda)</script>。</p>
+<p>我们可以看到由于每个T都有N中可能的状态，其时间复杂度为<script type="math/tex">O(N^T)</script>，在N、T较大时，其时间复杂度是无法接受的。</p>
+<p>显然这个算法重复计算了很多数据，造成了很多的浪费，具体如图所示。而使用迭代的方法，可以利用空间换取时间的效率，有效降低时间复杂度。</p>
+<p>这里我们介绍一个forward algorithm，它需要3步：</p>
+<ol>
+<li>初始化<script type="math/tex">\alpha_1^i=P(x_1,q_1=q^i \vert \lambda)=P(x_1 \vert q_1 =q^i,\lambda)\times P(q_1=q^i \vert \lambda)</script></li>
+<li>迭代<script type="math/tex">\alpha_{t+1}^j=[\sum_{i=1}^i \alpha_t^i P(q_{t+1}=q^j \vert q_t=q^i,\lambda)]\times P(x_{t+1}\vert q^j,\lambda) \\
+with \quad 1\leq j \leq N,and \quad 1\leq t \leq T-1</script></li>
+<li>最终可以得到<script type="math/tex">P(X \vert \lambda)=\sum_{i=1}^N \alpha_T^i</script></li>
+</ol>
+<p><img src="/image/HMM3.jpg" alt=""></p>
+<p>根据<script type="math/tex">\alpha_{t+1}^j</script>的公式，可以得出其时间复杂度为<script type="math/tex">O(N^2T)</script>，显然<script type="math/tex">O(N^2T) \ll O(N^T)</script></p>
+<p>FORWARD算法如下：</p>
+<p>1、initialization</p>
+<p>for <script type="math/tex">1 \leq t \leq T</script></p>
+<p>&emsp; <script type="math/tex">for 1 \leq i \leq N</script></p>
+<p>&emsp; &emsp; <script type="math/tex">a_t(i)=0</script></p>
+<p>for <script type="math/tex">1 \leq i \leq N</script></p>
+<p>&emsp; <script type="math/tex">a_1(i)=\Pi_i b_i (x_i);</script></p>
+<p>2、recursive computation</p>
+<p>for <script type="math/tex">2 \leq t \leq T</script></p>
+<p>&emsp; <script type="math/tex">for 1 \leq i \leq N</script></p>
+<p>&emsp; &emsp; <script type="math/tex">for 1 \leq j \leq N</script></p>
+<p>&emsp; &emsp; &emsp; <script type="math/tex">a_t(i)=a_t(i)+a_{t-1}(j)a_{ij};</script></p>
+<p>&emsp; &emsp; <script type="math/tex">a_t(i)=a_t(i)b_j(x_t);</script></p>
+<p>3、termination</p>
+<p>for <script type="math/tex">1 \leq i \leq N</script></p>
+<p>&emsp; <script type="math/tex">P=P+a_T(i)</script></p>
+<p>于是，根据FORWARD算法，我们可以得到路径中每一处的概率，同时也拥有可接受的时间复杂度。</p>
+<p>显然，FORWARD算法相对应的就是BACKWARD算法，初始化时间T时的各个节点的概率为1，从后向前进行计算即可，同样可以得到任意一条路径的概率大小。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>假设我们知道了一个observation序列，那么我们如何找到最能与之匹配的状态序列呢，也就是说如何找到序列路径Q，使<script type="math/tex">P(q_1,q_2,...,q_T \vert X,\lambda)</script>取最大值，这是实际应用时最常见的问题。我们可以将其定义为如下最大后验概率问题</p>
+<script type="math/tex; mode=display">\mathop{\arg\max}_{q} P(q|x)= \mathop{\arg\max}_{q} \frac{P(x,q)}{P(x)} \\
+=\mathop{\arg\max}_{q} \frac{P(x,q)}{\sum_q P(x,q)} \\
+=\mathop{\arg\max}_{q}P(x,q)</script><p>为了解决这个问题，我们需要引入一个新的算法：Viterbi算法，这是一个保持最可能状态序列的动态归纳算法。这相当于寻找一条产生最大概率的路径，这条路径对应着一个状态序列。这和前面的前向算法类似，只要把求和换成求最大值即可。Viterbi算法的核心是动态规划求解最优路径：要保证一个解是全局最优解，其部分解也必须是最优的。</p>
+<script type="math/tex; mode=display">\delta_{t-1}(k)=max[\delta_t(i)a_{ik}]b_k(x_{t+1}),with \quad 1 \leq k \leq N</script><p>Viterbi算法如下：</p>
+<p>1、initialization</p>
+<p>for <script type="math/tex">1 \leq i \leq N</script></p>
+<p>&emsp; <script type="math/tex">\delta_1(i)=\Pi_ib_i(x_1)</script></p>
+<p>&emsp; <script type="math/tex">\Psi_1(i)=0</script></p>
+<p>2、recursive computation</p>
+<p>for <script type="math/tex">2 \leq y \leq T</script></p>
+<p>&emsp; for <script type="math/tex">1 \leq j \leq N</script></p>
+<p>&emsp; &emsp; <script type="math/tex">\delta_t(j)=max[\delta_{t-1}(i)a_{ij}]b_j(x_t)</script></p>
+<p>&emsp; &emsp; <script type="math/tex">\Psi_t(j)=\mathop{\arg\max}_{1 \leq i \leq N}(\delta_{t-1}(i)a_{ij})</script></p>
+<p>3、termination</p>
+<p>&emsp; <script type="math/tex">P^\ast=max[\delta_T(i)]</script></p>
+<p>&emsp; <script type="math/tex">q^{\ast}_{T}=\mathop{\arg\max}_{1 \leq i \leq N}[\delta_T(i)]</script></p>
+<p>4、Backtracking</p>
+<p>for t=T-1 down to 1    </p>
+<p>&emsp; <script type="math/tex">q^{\ast}_{t}=\Psi_t(q^{\ast}_{t+1})</script></p>
+<p>由于其计算过程与forward算法类似，所以计算复杂度也为<script type="math/tex">O(N^2T)</script>。</p>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p>顾名思义，即为从数据中找到每个模型的参数，使<script type="math/tex">\lambda=(\Gamma,A,B)</script>参数能够最大化<script type="math/tex">P(X \vert \lambda)</script>。通过一组样本，利用最大似然估计，确定状态转移矩阵和观测矩阵等模型参数。</p>
+<p>为了计算这些参数，我们引入另一个算法：Baum-Welch算法，这个算法是基于EM算法得来的，其大致步骤可以简述为：</p>
+<ol>
+<li><p>随机初始化参数<script type="math/tex">\lambda_0</script></p>
+</li>
+<li><p>基于<script type="math/tex">\lambda_0</script>和observation利用EM算法计算新模型的<script type="math/tex">\lambda_0</script></p>
+</li>
+<li><p>如果<script type="math/tex">logP(X \vert \lambda)-logP(x \vert \lambda_0) < \delta</script>则停止计算，否则进入第四步</p>
+</li>
+<li><p>将<script type="math/tex">\lambda</script>赋值给<script type="math/tex">\lambda_0</script>，并重复第二步</p>
+</li>
+</ol>
+<p>Baum-Welch算法中的EM具体推导步骤参见<a target="_blank" rel="noopener" href="http://tensorinfinity.com/paper_99.html">理解隐马尔可夫模型</a>的“训练算法”，通过EM算法构造下届函数，不断迭代逼近最优结果，最终满足停止计算的约束条件，得到<script type="math/tex">\lambda</script>。</p>
+<h2 id="HMM应用"><a href="#HMM应用" class="headerlink" title="HMM应用"></a>HMM应用</h2><p>HMM被广泛应用语音识别、手写识别、DNA序列、天气、股票建模等领域。</p>
+<h3 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h3><p>1、L.R.Rabiner. A tutorial on Markov models and selected applications in speech recognition, Proc. IEEE, vol. 77, pp. 257—285, Feb. 1989.</p>
+<p>2、Duda, Hart and Stork, Pattern Classification, 2nd Ed., Wiley 2001.</p>
+<p>3、G.A. Fink. Markov Models for Pattern Recognition, Springer, 2008.</p>
+<p>4、<a target="_blank" rel="noopener" href="http://tensorinfinity.com/paper_99.html">理解隐马尔可夫模型</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2019-07-20-HMM/" data-id="claudpae7000rpkvr4bnt08p9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          写于2019五一假期之后
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">统计学习</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%9D%82%E6%96%87/" style="font-size: 10px;">杂文</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 15px;">游记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/">写于2019五一假期之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/">张家界</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 daoist<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>PCA | daoist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="PCA（主成分分析）是一种统计分析的过程，它通过将可能相关的一组观察值通过正交变换转换为一组线性无关的变量。这个变换的定义是让第一主成份拥有尽可能大的方差，并且使之后的成分在与之前成分正交的约束条件下拥有尽可能大的方差。最终得到的矢量是一组不相关的正交基。只看PCA的定义似乎并没有什么难以理解的地方，实际应用中，按照PCA的流程一步步计算，也不会发现太多问题，但是PCA背后的原理和意义却一直被人们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PCA">
+<meta property="og:url" content="http://example.com/2022/11/23/2019-03-27-PCA/index.html">
+<meta property="og:site_name" content="daoist">
+<meta property="og:description" content="PCA（主成分分析）是一种统计分析的过程，它通过将可能相关的一组观察值通过正交变换转换为一组线性无关的变量。这个变换的定义是让第一主成份拥有尽可能大的方差，并且使之后的成分在与之前成分正交的约束条件下拥有尽可能大的方差。最终得到的矢量是一组不相关的正交基。只看PCA的定义似乎并没有什么难以理解的地方，实际应用中，按照PCA的流程一步步计算，也不会发现太多问题，但是PCA背后的原理和意义却一直被人们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/image/矩阵相乘.PNG">
+<meta property="og:image" content="http://example.com/image/坐标投影.PNG">
+<meta property="article:published_time" content="2022-11-23T06:37:52.686Z">
+<meta property="article:modified_time" content="2019-05-24T07:05:42.553Z">
+<meta property="article:author" content="daoist">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/image/矩阵相乘.PNG">
+  
+    <link rel="alternate" href="/atom.xml" title="daoist" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">daoist</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2019-03-27-PCA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2019-03-27-PCA/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.686Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PCA
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>PCA（主成分分析）是一种统计分析的过程，它通过将可能相关的一组观察值通过正交变换转换为一组线性无关的变量。这个变换的定义是让第一主成份拥有尽可能大的方差，并且使之后的成分在与之前成分正交的约束条件下拥有尽可能大的方差。最终得到的矢量是一组不相关的正交基。只看PCA的定义似乎并没有什么难以理解的地方，实际应用中，按照PCA的流程一步步计算，也不会发现太多问题，但是PCA背后的原理和意义却一直被人们所忽视。对于科学问题要刨根问底，这里我们就从矩阵、特征值、协方差矩阵一步步讲述PCA背后所隐藏的原理。</p>
+<hr>
+<h2 id="特征值与特征向量"><a href="#特征值与特征向量" class="headerlink" title="特征值与特征向量"></a>特征值与特征向量</h2><p>线性代数大家都不陌生，最初是人们为了解决线性方程组而提出的一种解法，随着线代的不断发展，向量、向量空间、线性变换等理论逐步构建了线代的核心理论。在开始本文之前，不妨先看一个有趣的视频<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av6540378/">3Blue1Brown：线代的本质</a>，不知道看完这个你有什么感想？反正我是觉得自己大学线代白学了，理解了矩阵的本质后，接下来的文章就容易理解多了。</p>
+<p>举个例子：</p>
+<script type="math/tex; mode=display">
+ \left[
+ \begin{matrix}
+   1 & 1 \\
+   -1 & 1
+  \end{matrix}
+  \right] 
+ \left[
+ \begin{matrix}
+   1 \\
+   2 
+  \end{matrix}
+  \right]=
+ \left[
+ \begin{matrix}
+   3 \\
+   1 
+  \end{matrix}
+  \right]</script><p><img src="/image/矩阵相乘.PNG" alt=""> </p>
+<p>在这个例子中，可以看到，向量<script type="math/tex">\left[\begin{matrix}1 \\2 \end{matrix}\right]</script>在新的坐标系中（即红色坐标里）的横纵坐标分别为1、2，通过乘以矩阵<script type="math/tex">\left[\begin{matrix}1 & 1 \\-1 & 1\end{matrix}\right]</script>，该向量变成了<script type="math/tex">\left[\begin{matrix}3 \\1 \end{matrix}\right]</script>，通过之前的视频我们知道，通过这样一个矩阵，我们将初始的二维坐标系进行了拉伸和旋转，得到了一个新的坐标系。同样的一个点，在不同坐标系内拥有不同的坐标，在新的坐标系中的坐标乘以矩阵，得到了在原坐标系中的原始坐标，尽管他们都是同一个点。</p>
+<p>矩阵的本质在于线性变换，也就是说对于坐标轴的拉伸和旋转，向量通过和矩阵相乘，得到了在新的坐标系中的坐标。我们看看特征值和特征向量的定义：</p>
+<script type="math/tex; mode=display">Ax=\lambda x</script><script type="math/tex; mode=display">Ax-\lambda I x=0</script><script type="math/tex; mode=display">(A-\lambda I) x=0</script><script type="math/tex; mode=display">\left| A-\lambda \right| =0</script><p>通过与之前矩阵乘法的比较，可以很简单的得出结论，特征向量就是通过矩阵相乘即坐标系转换后，仅仅发生了长度改变的向量，而特征值即为它的长度伸缩倍数。在我们上边举的例子中，会发现由于发生了坐标旋转，所有的向量都旋转离开了之前的空间，无法找到一个向量在两个坐标系中拥有同样的方向，即它不存在特征向量。通过计算，我们也可以得到，其特征值是虚数。假设我们有矩阵<script type="math/tex">\left[\begin{matrix}2 & 2 \\1 & 3\end{matrix}\right]</script>，为了计算这个矩阵的特征向量和特征值，我们可以得到<script type="math/tex">\left[\begin{matrix}2-\lambda & 2 \\1 & 3\lambda \end{matrix}\right]=0</script>，<script type="math/tex">\lambda =1</script>、<script type="math/tex">\lambda =4</script>，在这个特征值下，<script type="math/tex">\vert A-\lambda \vert =0</script> 行列式会被压缩成一条直线，维度降低为1维。</p>
+<h2 id="数据降维"><a href="#数据降维" class="headerlink" title="数据降维"></a>数据降维</h2><p>理解了特征值、特征向量和矩阵的线性变换后，我们来看看如何将数据进行降维。考虑有一组二维平面的数据，每个数据点在原始坐标系中都有一个坐标。而数据降维的目的就是找到一个新的坐标系，使原来的数据点尽量落在新坐标系中的一个坐标轴上，这样做的目的是尽量保持数据中携带的信息，在降维的同时尽量减少损失。如果能够找到一个坐标系，使得所有数据的y值为0，那么就可以进行降维了，因为这样并不会丢失任何信息。</p>
+<p><img src="/image/坐标投影.PNG" alt=""> </p>
+<p>例如图中所示，为了使数据点的X坐标有尽量大的值，我们就让<script type="math/tex">X_{1}^{2}+X_{2}^{2}+...+X_{n}^{2}</script>取最大值。可以发现如果我们将数据都均值化为0，那么这个式子就等于方差的n倍，也就是说我们的目的就是寻找一组正交基，使得所有数据变换为这个基上的坐标后，方差最大。</p>
+<p>对于二维数据来讲，找到那个使得方差最大的一组基就完事了，因为我们只有两个维度，缩减一维之后，就只剩下我们需要的那个维度了。但是对于更高的维度来说，降维的工作会变得有些复杂，首先我们肯定不能只找一组基就算了，而是要找到尽可能多的表示数据信息的并且线性无关的若干组基。我们用协方差来表示这些方向的相关性，则：<script type="math/tex">Cov(a,b)=\frac{1}{n} \sum_{i=1}^{n}a_i b_i</script>，我们仅需要找到协方差等于0的基即可，即与第一个方向正交的方向，同时又是剩下的所有方差中最大的那组基，就是我们下一步要找的基。</p>
+<p>为了将两者统一表示，我们使用如下矩阵：</p>
+<script type="math/tex; mode=display">
+XX^T= \left(
+ \begin{matrix}
+   \sum_{i=1}^{n}a_{i}^{2} & \sum_{i=1}^{n}a_{i} b_{i} \\
+   \sum_{i=1}^{n}a_{i} b_{i} & \sum_{i=1}^{n}b_{i}^{2}
+  \end{matrix}
+  \right)</script><p>在这个矩阵里，对角线元素为方差，其他元素是协方差，这两者就被统一到一个矩阵中了。由于这是一个对称矩阵，而对称矩阵拥有很多良好的性质，可以将其对角化，并且使对角线上的元素从大到小排列。具体的方法就是进行奇异值分解，推导步骤这里就不再详述了。</p>
+<p>回到我们最初的目的上，我们要找的是一组正交基，使得原始矩阵经过矩阵变换后，在新的坐标系下能够保留尽可能多的信息，我们假设新的坐标系下的矩阵为Y，<script type="math/tex">Y=PX</script>，则：</p>
+<script type="math/tex; mode=display">
+
+YY^T=(PX)(PX)^T=P(XX^T)P^T=PCP^T</script><p>为了使得<script type="math/tex">YY^T</script>为对角矩阵，我们就需要找到一个矩阵P，使<script type="math/tex">PCP^T</script>成为一个对角矩阵。根据是对称矩阵的性质，可知，我们要找的矩阵P即为其特征向量组成的矩阵。也就是对协方差矩阵进行奇异值分解后，得到的正交矩阵。有了P我们就可以直接计算<script type="math/tex">PX</script>了，由于P的前n行就代表了X变换后最大的n个投影方向，因此我们也要减少到几维，就用P的前几个行组成的矩阵乘以X，即可得到最终的结果。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2019-03-27-PCA/" data-id="claudpae5000mpkvr2dos811z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/23/2018-12-30-Bayes/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Bayes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/23/2018-11-13-%E5%86%B3%E7%AD%96%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">决策树</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%9D%82%E6%96%87/" style="font-size: 10px;">杂文</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 15px;">游记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/">写于2019五一假期之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/">张家界</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 daoist<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>

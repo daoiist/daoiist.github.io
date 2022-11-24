@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Bayes | daoist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="托马斯·贝叶斯（1701-1761），英国统计学家、哲学家、教会牧师，生前并没有发表任何使他出名的成果，直到1763年他死后两年，他的笔记才由理查德·普莱斯编辑和出版，这些笔记中有一篇他为解决“反向概率”的问题而写的文章，也就是因为这篇文章，他的名字才用以命名贝叶斯概率。但是贝叶斯概率的开拓者和普及者是拉普拉斯(没错，就是那个拉普拉斯)，贝叶斯的文章只是提出了反向概率的概念，并没有深入到问题的解释">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bayes">
+<meta property="og:url" content="http://example.com/2022/11/23/2018-12-30-Bayes/index.html">
+<meta property="og:site_name" content="daoist">
+<meta property="og:description" content="托马斯·贝叶斯（1701-1761），英国统计学家、哲学家、教会牧师，生前并没有发表任何使他出名的成果，直到1763年他死后两年，他的笔记才由理查德·普莱斯编辑和出版，这些笔记中有一篇他为解决“反向概率”的问题而写的文章，也就是因为这篇文章，他的名字才用以命名贝叶斯概率。但是贝叶斯概率的开拓者和普及者是拉普拉斯(没错，就是那个拉普拉斯)，贝叶斯的文章只是提出了反向概率的概念，并没有深入到问题的解释">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-23T06:37:52.686Z">
+<meta property="article:modified_time" content="2019-05-24T07:05:33.692Z">
+<meta property="article:author" content="daoist">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="daoist" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">daoist</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2018-12-30-Bayes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/11/23/2018-12-30-Bayes/" class="article-date">
+  <time datetime="2022-11-23T06:37:52.686Z" itemprop="datePublished">2022-11-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Bayes
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Thomas_Bayes">托马斯·贝叶斯</a>（1701-1761），英国统计学家、哲学家、教会牧师，生前并没有发表任何使他出名的成果，直到1763年他死后两年，他的笔记才由<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Richard_Price">理查德·普莱斯</a>编辑和出版，这些笔记中有一篇他为解决“反向概率”的问题而写的文章，也就是因为这篇文章，他的名字才用以命名贝叶斯概率。但是贝叶斯概率的开拓者和普及者是<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace">拉普拉斯</a>(没错，就是那个拉普拉斯)，贝叶斯的文章只是提出了反向概率的概念，并没有深入到问题的解释，但是贝叶斯的反向概率的思想却深刻地影响了概率论的发展。</p>
+<hr>
+<h2 id="贝叶斯概率"><a href="#贝叶斯概率" class="headerlink" title="贝叶斯概率"></a>贝叶斯概率</h2><p>首先我们来看一个统计学中非常典型的悖论：有一个统计学家，坐上了一架飞机，这架飞机共有四个引擎，这是故事的前提。然后在飞机的飞行过程中，突然有一个引擎故障熄火，飞机的速度也降为原来的四分之三；之后又有一个引擎故障，然后速度变成了原来的二分之一；以此类推，这架飞机只剩下了最后一个引擎，这时统计学家非常高兴地告诉大家，如果这个飞机再坏一个引擎，我们就可以停留在空中了。</p>
+<p>虽然常识告诉我们飞机无法停留在空中，但是根据观测和统计的结果，统计学家得出的结论其实并没有什么问题，只是他运用的方法不适合这个场景，这里经典的概率论显然会把人们引向歧途，而考虑反向概率的贝叶斯概率论可以有效的降低这种悖论的出现。首先我们明确什么事正向概率什么是反向概率，假设有一个不透明的箱子，我们事先知道里边有若干黑球、若干红球，那么在这个基础上，可以很简单的计算出摸出各种颜色球的概率，这种正向概率的计算方法在贝叶斯之前就已经被人们掌握。但是通常人们面临的问题是：不知道箱中有多少黑球、红球，我们要根据试验的结果来进行反推，得到箱中各种颜色球的数量。这也是我们面对的各种科学问题最常见的解决思路，就是只能根据观测的结果进行假设。人类面对太阳每天的升降起落，只能推测出各种模型进行假设，最初人们的假设是地心说，因为根据人们的观测，显然太阳、月亮等各种星体是围绕着地球转动的，这是最简单、最符合我们肉眼观测的假设，因此在更深入的观测和计算之前，这就是科学；随着日心说的诞生和各种更加丰富的观测手段和计算能力的诞生，人类意识到太阳才是我们宇宙的中心；但是显然这些假设随着人类观测的深入，都被一一推翻了，当然，随着人类各种星际的探索和观测手段的提升（显微镜、SEM、TEM、粒子对撞机），现在的这个宇宙模型是否还能站的住脚，也是有待商榷的。人类面对各种科学问题，最有效、最直接的方法，就是提出符合目前能够直接、间接观测到的结果的假设，然后计算这个假设的后验概率（可能性大小）。这也是为什么贝叶斯概率能够席卷统计学届的原因，因为这从哲学上符合科学的发展规律。</p>
+<p>来一个小小的公式：</p>
+<script type="math/tex; mode=display">P(B|A)=P(A|B) \times P(B)/P(A)=P(AB)/P(A)</script><p>相信大家对这个公式都不陌生，这样一个简单、优美的公式，背后隐含的原理却是非常深刻。再回到文章开头的那个例子，统计学家预测飞机速度的那个故事，在这里，统计学家根据观察到的现象，做出了这样一个假设，每个引擎故障，飞机速度就会降低四分之一，我们把这个假设设为h，根据前三次的观测结果，运用最大似然估计，不难得到，三次试验的结果完全符合我们的假设，OK，那么下次的故障，会以极大的概率导致飞机速度降为0。有人可能会提出异议，只进行了三次试验，还不具有说服力，样本不够充分，先不着急，我们看看贝叶斯公式是怎么解决这个问题的。那个假设仍然记为h，飞机的正常飞行并在引擎全部故障后停止在空中的概率记为G，即飞机在符合物理规律的前提下，根据贝叶斯的反向概率 <script type="math/tex">P(h \vert G)=P(G \vert h) \times P(h) / P(G)</script> ，由于飞机仍然处于我们所认识的正常的物理世界中，因此无论我们做出何种假设，<script type="math/tex">P(G)</script>大小都不会变化，因此最终我们要求的结果<script type="math/tex">P(h \vert G) \propto P(G \vert h) \times P(h)</script>，来看一下公式右边这两项代表的含义是什么，<script type="math/tex">P(G \vert h)</script>意为在我们当前的假设下飞机停止在空中的概率，由于我们已经根据最大似然估计做出了若干次试验，我们就假设这一项的大小接近于1，再看看后一项<script type="math/tex">P(h)</script>，这是什么意思呢？没错它就是说我们当前假设的先验概率的大小，由于我们的物理常识告诉我们，一个物体是没有办法停止在空中的，那么这一项的大小可以设为0，然后再看看最终的结果，就是零，即当前假设（飞机在所有引擎故障后速度降为0）在当前给出的试验结果中是不可能存在的。</p>
+<p>回到刚才的<script type="math/tex">P(h \vert G) \propto P(G \vert h) \times P(h)</script>这个式子中，我们将等号后边的两项的含义抽象出来，即当前假设在我们所观察到的数据中的可能性大小likelihood（似然）和我们当前假设本身的可能性大小prior（先验概率），这两项的乘积才是我们最终求得的结果。这样来看，结果显而易见，虽然我们的假设非常符合当前所观察到的试验结果（最大似然），但是我们的假设本身存在的概率却非常小（起码在当前的物理规律中），也就是无论我们做再多次试验，拥有足够多的样本，其结果还是一样的。当然，如果我们真的做了最后一次试验，将所有飞机引擎关停，那么其结果也肯定将导致似然项的大小骤减，所以很多时候，利用贝叶斯概率，不仅可以避免悖论的出现，也能够极大的减少试验的次数，使我们的科学研究更加富有效率。最后引用拉普拉斯的一句话“概率论只不过是把常识用数学公式表达了出来”。</p>
+<p>虽然这个问题看似愚蠢，但是其隐含的道理却非常深刻。人们可能会疑惑，飞机显然是不可能停在半空中的嘛，这个问题人类可以根据人类自身的常识得到，但是如果想要把这个工作交给计算机去进行学习，得出结论，却需要我们花费相当大的代价来训练计算机的数学模型，因为很多在我们人类看来常识的东西，恰恰是计算机所不具备的能力，因为根据统计学习所得出的东西，往往只是事物的表层，而越是表层的东西，往往也就越复杂多变。人类最初也是如同机器一样，只能根据最表层的观察来进行判断，但是随着人类常识的积累、观测手段的提升，将原本处于表层的东西不断进行挖掘，对事物的了解越来越深入，这才逐步形成了我们当今世界的各种理论。机器学习中的计算机就像是最原始的人类的一样，即便问题在我们看来再正常、合理不过，它也会根据最表层的现象进行统计分析和判断，难以形成人类的逻辑思维能力，这也是现在神经网络吸引人们注意的地方，它想方设法将计算机中的算法用来模拟人的大脑中的神经元，对事物进行学习，以期获得和人类一样的深层次、有逻辑判断能力的计算机，但是显然，这些工作任重而道远，起码目前看来，所谓的人工智能，仍然只是对统计规律的学习而已，要想使得计算机真正具有“智能”，似乎仍然遥不可期。</p>
+<h3 id="贝叶斯实例"><a href="#贝叶斯实例" class="headerlink" title="贝叶斯实例"></a>贝叶斯实例</h3><p>让我们假设有一个死理性派，偶然间遇到一位心仪女孩，为了要证明女孩是否单身，他要完成的高难度任务是：作为一个与女孩保持距离的陌生人，在女孩毫无察觉的情况下，就可以用手头有限的信息判断出女孩的单身情况，以便在表白时避免发生尴尬。</p>
+<p>首先我们召集几个朋友（人越多越好）客观的对女孩是否单身进行评价，投票得出女孩单身的概率，这一步是初始化一个概率值，我们得到概率为65.65%。</p>
+<p>接下来考虑一下贝叶斯理论吧，我们需要统计的数据如下：</p>
+<pre><code>单身女孩使用手机的频率大于两次和小于两次的比例
+
+非单身女孩使用手机的频率大于两次和小于两次的比例
+
+单身女孩结伴上自习、独自上自习的比例
+
+非单身女孩结伴上自习、独自上自习的比例
+
+经常结伴上自习的女孩，单身、非单身的比例
+
+经常独自上自习的女孩，单身、非单身的比例
+
+使用手机频率大于两次的女孩，单身、非单身的比例
+
+使用手机频率小于两次的女孩，单身、非单身的比例
+</code></pre><p>假设我们观察得出的结果是，女孩喜欢结伴上自习，而且在恋爱的女孩中，喜欢结伴自习的比例为30%，在单身女孩中喜欢结伴的比例为60%。这样我们判断女孩是否单身的计算公式是：</p>
+<script type="math/tex; mode=display">P(A_i│B)=(P(B|A_i)P(A_i))/(\sum_{i=1}^{n}[P(B|A_i)P(A_i)])</script><script type="math/tex; mode=display">P(A_单│B)=(P(B|A_单)P(A_单))/(\sum_{i=1}^{n}[P(B|A_i)P(A_i)])=\\
+((65.65\%×60\%)/(65.65\%×60\%+34.35\%×30\%))=79.26\%</script><p>其中：B为女孩生活中透漏的信息如结伴自习的频率，A为是否单身的概率，P(A_单│B)即表明在女孩由于喜欢结伴自习，其单身的概率提高了！</p>
+<p>接下来我们继续对这个数值进行修正，考虑使用手机频率的影响，在单身女孩中，手机使用率高于1.2次/小时占其中的20%；在已经恋爱的女孩中，这一数值则是60%。对于目标女孩的观察结果是，她的手机使用率高于每小时1.2次，那么：</p>
+<script type="math/tex; mode=display">P(A_单│B)=(P(B|A_单)P(A_单))/(\sum_{i=1}^{n}[P(B|A_i)P(A_i)])=\\
+((79.26\%×20\%)/(79.26\%×20\%+20.74\%×60\%))=56.02\%</script><p>不幸的是，似乎女孩单身的概率又减少了。</p>
+<p>经过我们的不断数值的修正，最终从一个初始值得到了女孩最接近真实的单身概率。当然，这只是统计意义上的概率，可能只需要一次女孩和其他男生牵手就可以推翻以上所有的推论，但是这里要讲的是，如何在较少的观察结果下，仅凭历史统计信息得出结果的方法。虽然本方法用在追女孩上显得异常荒谬，但是用在其他的领域却能够显示出极大的优势出来。这里只是针对广大单身男性提出一个方法，权当消遣。</p>
+<h3 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h3><p>这里再简单介绍一下朴素贝叶斯的定义：由统计学知，如果每个特征需要N个样本，那么对于10个特征将需要<script type="math/tex">N^{10}</script>个样本，对于包含1000个特征的词汇表将需要<script type="math/tex">N^{1000}</script>个样本。可以看到，所需要的样本数会随着特征数目增大而迅速增长。如果特征之间相互独立，那么样本数就可以从<script type="math/tex">N^{1000}</script>减少到N×1000。所谓独立（independence）指的是统计意义上的独立，即一个特征或者单词出现的可能性与它和其他单词相邻没有关系。举个例子讲，假设单词bacon出现在unhealthy后面与出现在delicious后面的概率相同。当然，我们知道这种假设并不正确，bacon常常出现在delicious附近，而很少出现在unhealthy附近，这个假设正是朴素贝叶斯分类器中朴素（naive）一词的含义。朴素贝叶斯分类器中的另一个假设是，每个特征同等重要，其实这个假设也有问题。 如果要判断留言板的留言是否得当，那么可能不需要看完所有的1000个单词，而只需要看10～20个特征就足以做出判断了。尽管上述假设存在一些小的瑕疵，但朴素贝叶斯的实际效果却很好。常见的垃圾邮件分类，就是使用了朴素贝叶斯的方法。</p>
+<p>最后，如果对贝叶斯其他的应用感兴趣，可以看看<a target="_blank" rel="noopener" href="http://mindhacks.cn/">刘未鹏</a>的这篇<a target="_blank" rel="noopener" href="http://mindhacks.cn/2008/09/21/the-magical-bayesian-method/">数学之美番外篇：平凡而又神奇的贝叶斯方法</a>，本文也是在其启发下写就的。</p>
+<h2 id="屠龙的宝刀-奥卡姆剃刀"><a href="#屠龙的宝刀-奥卡姆剃刀" class="headerlink" title="屠龙的宝刀-奥卡姆剃刀"></a>屠龙的宝刀-奥卡姆剃刀</h2><p>首先介绍一下<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Occam%27s_razor">奥卡姆剃刀</a>（Occam‘s Razor），14世纪时，英格兰萨里郡，有一个叫做奥卡姆的小村庄，村里有一个方济各会教士、哲学家和神学家<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/William_of_Ockham">威廉</a>，他说了一句话，叫做“Entities are not to be multiplied without necessity”，即“如无必要，勿增实体”。奥卡姆剃刀中剃刀的含义可能是因为威廉经常使用一把剃刀而得名。这个哲学道理又被称为“law of parsimony”（简约原理），其含义为：在解决问题的过程中，往往简单的方法要好过复杂的方法，也就是说，当我们为了解决问题而提出假设时，往往应该选择假设较少的那个方法。</p>
+<p>奥卡姆剃刀与贝叶斯方法有着天然的联系，在我们利用贝叶斯解决问题的时候，首先就是提出假设，然后计算各个假设的可能性大小，奥卡姆剃刀就为我们提出假设指明了方向，尽量选择假设较少的那个假设。举个例子，皇帝的新衣，当一个一丝不挂的皇帝走在大街上时，大人和小孩分别对其进行了假设：</p>
+<p>大人：</p>
+<ol>
+<li>假设皇帝身上穿着华美的衣服</li>
+<li>假设只有聪明人才能看到这件衣服</li>
+<li>假设我是个蠢人，所以我看到的是一丝不挂的皇帝</li>
+</ol>
+<p>小孩：</p>
+<ol>
+<li>假设皇帝没穿衣服</li>
+</ol>
+<p>一目了然，小孩面对这个问题，只是提出了一个假设，就满足了所有的观测结果，而大人则需要提出三个假设，才能自圆其说，满足现在的观察。那么对这两个同时符合观测结果的假设来说，我们使用奥卡姆剃刀就可以直接选择支持小孩了，因为这个假设更加简洁，更符合奥卡姆剃刀的原理。让我们回到贝叶斯概率中来，为了解决一个问题，我们会提出若干个假设，每个假设根据统计学可知，都可能造成最终结果的正确和错误两种可能，如果一个假设没有提高我们理论的准确性，那么它的唯一作用就是增加整体理论错误的可能性，也就是说为了使得我们的假设更加具有真理性，选择较少的那个假设总是没错的，当然前提是要符合我们当前的观测结果。</p>
+<p>假设有一个智者，他说自己召唤了一条看不到、摸不着、无法被观测到巨龙，那么我们利用奥卡姆剃刀，就可以轻易将巨龙斩杀了，因为一条无法被观测的巨龙，在奥卡姆剃刀看来，我们就直接假设不存在这条巨龙反而更加方便，无法被观测的东西，对于人类来讲，是不具有意义的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>其实本文啰哩啰嗦讲了这么一大堆不着边际的话，无非是想说明两个道理，简单的东西往往是有效的，生活中往往隐藏着各种数学，数学往往也只是常识的表达。贝叶斯公式简单而优美，却隐含着我们人类认知世界的规律和常识，奥卡姆剃刀更是简单明了的指出了越简单、越正确的哲学原理。纵观机器学习史上引用次数最多的几篇文章，就可以发现，文章中的原理都异常简洁，但是却说明了非常高深的道理，使得众人纷纷引用。数学中最具影响力的十大公式，同样是简洁而优美的。简单的东西往往隐藏着更加丰富的哲学道理，遇到问题，不妨想想我们自己的生活，或许其中就隐藏了解决的方法。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/11/23/2018-12-30-Bayes/" data-id="claudpae4000kpkvrb6ww7sbh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          2017年度读书报告
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/11/23/2019-03-27-PCA/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PCA</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9D%82%E6%96%87/" rel="tag">杂文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag">游记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E6%9D%82%E6%96%87/" style="font-size: 10px;">杂文</a> <a href="/tags/%E6%B8%B8%E8%AE%B0/" style="font-size: 15px;">游记</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 20px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/23/2019-05-07-%E5%86%99%E4%BA%8E2019%E4%BA%94%E4%B8%80%E5%81%87%E6%9C%9F%E4%B9%8B%E5%90%8E/">写于2019五一假期之后</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-07-20-HMM/">HMM</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-08-16-%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/">统计学习</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2019-10-13-%E5%BC%A0%E5%AE%B6%E7%95%8C/">张家界</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/23/2017-12-27-2017%E5%B9%B4%E5%BA%A6%E8%AF%BB%E4%B9%A6%E6%8A%A5%E5%91%8A/">2017年度读书报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 daoist<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
